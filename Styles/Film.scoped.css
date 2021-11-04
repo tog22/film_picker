@@ -1,0 +1,15 @@
+.film {
+	display: table-row;
+}
+
+.poster,
+.details {
+	display: table-cell;
+	vertical-align: top;
+	padding-right: 2em;
+}
+
+.poster img {
+	width: 100px;
+}
+

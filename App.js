@@ -1,4 +1,3 @@
-import './App.css'
 import './Styles/All.css'
 
 import Film from './Components/Film'

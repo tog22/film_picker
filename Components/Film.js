@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Film.css'
+import '../Styles/Film.scoped.css'
 
 export default class Film extends React.Component {
 	
@@ -33,7 +33,7 @@ export default class Film extends React.Component {
 			year: 1972,
 			poster: 'https://s3.amazonaws.com/criterion-production/films/ec5399163d6dca9c04ee961a15f1c863/JegycjW6BfTUczUHnh51sLyJCVKQoy_large.jpg',
 			type: 'movie',
-			summary: 'A surreal, virtually plotless series of dreams centered around six middle-className people and their consistently interrupted attempts to have a meal together.'
+			summary: 'A surreal, virtually plotless series of dreams centered around six middle-class people and their consistently interrupted attempts to have a meal together.'
 		}
 	}
 	
