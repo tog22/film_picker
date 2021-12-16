@@ -1,13 +1,11 @@
 import './Styles/All.css'
 
-import Film from './Components/Film'
+import Group_Films from './Components/Tables/Group_Films'
 
 function App() {
 	return (
 		<div className="App">
-			<div className="big_table">
-				<Film />
-			</div>
+			<Group_Films />
 		</div>
 	);
 }

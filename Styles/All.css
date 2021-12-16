@@ -1,3 +1,46 @@
 body {
 	margin: 20px;
 }
+
+.big_table {
+	display: table;
+	
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+.column_titles {
+	display: table-row;
+	background: white;
+	margin: -1px;
+}
+
+.big_table td {
+	vertical-align: top;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.big_table .main_row td {
+	padding-top: 1em;
+	border-top: 1px solid #eee;
+}
+
+.big_table .main_row td.poster {
+	padding-top: 0.66em;
+	padding-bottom: 0.66em;
+}
+
+.big_table .summary {
+	padding-bottom: 0.66em;
+}
+
+.big_table .summary,
+.big_table .main_row .poster.cell {
+	border-bottom: 1px solid #eee;
+}
+
+.big_table th .cell {
+	border-top: 1px solid #eee;
+}
+
