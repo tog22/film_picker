@@ -2,6 +2,12 @@ import React from 'react';
 
 import Film from './Film'
 
+import tog from '../../libraries/tog'
+
+const dv = function dd() {
+	return 'aa'
+}
+
 export default class Table extends React.Component {
 	
 	render() {
@@ -28,23 +34,54 @@ export default class Table extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{this.props.films.map(
-						(film, index) => {
-							const key_name = 'gf'+index
+					{
+					tog.objects.map_numeric_obj_to_array(
+						this.state.films, 
+						(film, fid) => {
+							lo(film)
+							const key_name = 'gf'+fid
 							return (
-								<Film film={film} index={index} key={key_name} />
+								<Film film={film} fid={fid} key={key_name} />
 							)
 						}
-					)}
+					)
+					/*this.state.films.map(
+						(film, fid) => {
+							const key_name = 'gf'+fid
+							return (
+								<Film film={film} fid={fid} key={key_name} />
+							)
+						}
+					)*/}
 				</tbody>
 			</table>
 		);
 	}
 	
 	constructor(props) {
+		
 		super(props)
-		this.state = {
+		this.state = {}
+		
+		// Get films
+		
+		var films
+		var server_request = new XMLHttpRequest()
+			
+		let group = 1
+		let get_url = 'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+group
+		
+		server_request.open("GET", get_url, false)
+		server_request.send()
+		
+		const response = JSON.parse(server_request.responseText)
+		
+		if (response.result === 'success') {
+			this.state.films = response.films
 		}
+		
+		lo(this.state.films)
+		
 	}
 	
 }

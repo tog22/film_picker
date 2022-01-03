@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../Styles/Film.scoped.css'
 
+import tog from '../../libraries/tog'
+
 export default class Film extends React.Component {
 	
 	render() {

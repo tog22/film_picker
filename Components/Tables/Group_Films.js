@@ -34,18 +34,22 @@ export default class GroupFilms extends React.Component {
 					rankings: [
 						{
 							name: 'June',
+							uid: 2,
 							ranking: 4
 						},
 						{
 							name: 'Tom',
+							uid: 1,
 							ranking: 3
 						},
 						{
 							name: 'Wendy',
+							uid: 3,
 							ranking: 2
 						},
 						{
 							name: 'Zarifa',
+							uid: 4,
 							ranking: 1
 						},
 					]
