@@ -44,15 +44,7 @@ export default class Table extends React.Component {
 								<Film film={film} fid={fid} key={key_name} />
 							)
 						}
-					)
-					/*this.state.films.map(
-						(film, fid) => {
-							const key_name = 'gf'+fid
-							return (
-								<Film film={film} fid={fid} key={key_name} />
-							)
-						}
-					)*/}
+					)}
 				</tbody>
 			</table>
 		);

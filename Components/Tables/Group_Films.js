@@ -10,7 +10,7 @@ export default class GroupFilms extends React.Component {
 				<h2>
 					Psyche Movie Club
 				</h2>
-				<Table films={this.state.films} group={this.state.group} />
+				<Table group={this.state.group} />
 			</div>
 		);
 	}
@@ -24,6 +24,7 @@ export default class GroupFilms extends React.Component {
 				'Wendy',
 				'Zarifa'
 			],
+			/*
 			films: [
 				{
 					title: 'The Discreet Charm of the Bourgeoisie',
@@ -55,6 +56,7 @@ export default class GroupFilms extends React.Component {
 					]
 				}
 			]
+			*/
 		}
 	}
 	
