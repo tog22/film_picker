@@ -104,8 +104,6 @@ var tog = {
 					array.push(mapFn(object[key], key))
 				}
 			}
-			lo('arr to ret:')
-			lo(array)
 			return array
 		},
 	},

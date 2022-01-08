@@ -4,10 +4,6 @@ import Film from './Film'
 
 import tog from '../../libraries/tog'
 
-const dv = function dd() {
-	return 'aa'
-}
-
 export default class Group_Films_Table extends React.Component {
 	
 	render() {
@@ -38,7 +34,7 @@ export default class Group_Films_Table extends React.Component {
 					tog.objects.map_numeric_obj_to_array(
 						this.state.films, 
 						(film, fid) => {
-							lo(film)
+							// lo(film)
 							const key_name = 'gf'+fid
 							return (
 								<Film film={film} fid={fid} key={key_name} />
@@ -72,7 +68,7 @@ export default class Group_Films_Table extends React.Component {
 			this.state.films = response.films
 		}
 		
-		lo(this.state.films)
+		// lo(this.state.films)
 		
 	}
 	

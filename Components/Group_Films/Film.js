@@ -18,18 +18,18 @@ export default class Film extends React.Component {
 							{film.title}
 						</h3>
 					</td>
-					<td className="ranking cell">
-						4
-					</td>
-					<td className="ranking cell">
-						4
-					</td>
-					<td className="ranking cell">
-						4
-					</td>
-					<td className="ranking cell">
-						4
-					</td>
+					{
+						tog.objects.map_numeric_obj_to_array(
+							film['rankings'], 
+							(ranking, uid) => {
+								const key_name = 'r'+uid
+								return (
+									<td className="ranking cell" key={key_name}>
+										{ranking['ranking']}
+									</td>
+								)
+							}
+					)}
 				</tr>
 				<tr className="summary_row">
 					<td className="summary cell" colSpan="5">
