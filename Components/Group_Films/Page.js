@@ -19,9 +19,8 @@ export default class GroupFilmsPage extends React.Component {
 	
 }
 
-
-
 let l = function (to_log) { 
 	console.log(to_log) 
 }
+
 let lo = l
