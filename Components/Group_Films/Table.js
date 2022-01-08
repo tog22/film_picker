@@ -3,6 +3,7 @@ import React from 'react';
 import Film from './Film'
 
 import tog from '../../libraries/tog'
+import getb from '../../libraries/synchronous_requests'
 
 export default class GroupFilmsTable extends React.Component {
 	
@@ -15,18 +16,19 @@ export default class GroupFilmsTable extends React.Component {
 						</th>
 						<th className="cell details">
 						</th>
-						<th className="cell">
-							June
-						</th>
-						<th className="cell">
-							Tom
-						</th>
-						<th className="cell">
-							Wendy
-						</th>
-						<th className="cell">
-							Zarifa
-						</th>
+						{
+							tog.objects.map_numeric_obj_to_array(
+								this.state.users, 
+								(user, uid) => {
+									const key_name = 'u'+uid
+									return (
+										<th className="cell" key={key_name}>
+											{user['name']}
+										</th>
+									)
+								}
+							)
+						}
 					</tr>
 				</thead>
 				<tbody>
@@ -51,25 +53,21 @@ export default class GroupFilmsTable extends React.Component {
 		super(props)
 		this.state = {}
 		
-		// Get films
-		
-		var films
-		var server_request = new XMLHttpRequest()
-			
 		let group = 1
-		let get_url = 'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+group
 		
-		server_request.open("GET", get_url, false)
-		server_request.send()
+		// Get users
+		getb.react_state(
+			'https://filmpicker.philosofiles.com/sync/?action=get_group_users&group='+group,
+			this.state,
+			'users'
+		)
 		
-		const response = JSON.parse(server_request.responseText)
-		
-		if (response.result === 'success') {
-			this.state.films = response.films
-		}
-		
-		// lo(this.state.films)
-		
+		// Get films
+		getb.react_state(
+			'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+group,
+			this.state,
+			'films'
+		)
 	}
 	
 }

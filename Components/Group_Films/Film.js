@@ -29,7 +29,8 @@ export default class Film extends React.Component {
 									</td>
 								)
 							}
-					)}
+						)
+					}
 				</tr>
 				<tr className="summary_row">
 					<td className="summary cell" colSpan="5">
