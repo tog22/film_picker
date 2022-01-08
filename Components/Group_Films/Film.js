@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../Styles/Film.scoped.css'
 
+import Ranking from '../Ranking/Ranking'
+
 import tog from '../../libraries/tog'
 
 export default class Film extends React.Component {
@@ -24,8 +26,8 @@ export default class Film extends React.Component {
 							(ranking, uid) => {
 								const key_name = 'r'+uid
 								return (
-									<td className="ranking cell" key={key_name}>
-										{ranking['ranking']}
+									<td className="rcell cell" key={key_name}>
+										<Ranking rprop={ranking['ranking']} />
 									</td>
 								)
 							}
