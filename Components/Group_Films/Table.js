@@ -4,7 +4,7 @@ import Film from './Film'
 
 import tog from '../../libraries/tog'
 
-export default class Group_Films_Table extends React.Component {
+export default class GroupFilmsTable extends React.Component {
 	
 	render() {
 		return (

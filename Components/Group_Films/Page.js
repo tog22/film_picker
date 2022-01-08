@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Group_Films_Table from './Table'
+import GroupFilmsTable from './Table'
 
-export default class Group_Films_Page extends React.Component {
+export default class GroupFilmsPage extends React.Component {
 	
 	render() {
 		return (
@@ -10,7 +10,7 @@ export default class Group_Films_Page extends React.Component {
 				<h2>
 					Psyche Movie Club
 				</h2>
-				<Group_Films_Table group={this.state.group} />
+				<GroupFilmsTable group={this.state.group} />
 			</div>
 		);
 	}
