@@ -10,6 +10,21 @@
 	width: 100px;
 }
 
-h3 {
+h3.title {
 	margin-top: 0;
+	margin-bottom: 0.12em;
+}
+
+.text {
+	line-height: 1.33em;
+}
+
+.metadata {
+	font-size: 0.88em;
+	line-height: 1.22em;
+}
+
+.summary_text {
+	position: relative;
+	top: -1em;
 }

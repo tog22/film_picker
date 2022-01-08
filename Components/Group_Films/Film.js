@@ -15,10 +15,18 @@ export default class Film extends React.Component {
 					<td className="poster cell" rowSpan="2">
 						<img src={film.poster} alt={film.type} />
 					</td>
-					<td className="details cell">
-						<h3>
+					<td className="details cell text">
+						<h3 className="title">
 							{film.title}
 						</h3>
+						<div className="metadata">
+							<div>
+								{film.genre}
+							</div>
+							<div>
+								{film.year}, {film.director}
+							</div>
+						</div>
 					</td>
 					{
 						tog.objects.map_numeric_obj_to_array(
@@ -27,7 +35,11 @@ export default class Film extends React.Component {
 								const key_name = 'r'+uid
 								return (
 									<td className="rcell cell" key={key_name}>
-										<Ranking rprop={ranking['ranking']} />
+										<Ranking 
+											rprop={ranking['ranking']}
+											uid={uid}
+											fid={film.fid}
+										/>
 									</td>
 								)
 							}
@@ -35,13 +47,15 @@ export default class Film extends React.Component {
 					}
 				</tr>
 				<tr className="summary_row">
-					<td className="summary cell" colSpan="5">
+					<td className="summary cell text" colSpan="5">
 						{/*
 						<div className="metadata">
 							{film.year} • {film.director} • {film.genre} • Ratings
 						</div>
 						*/}
-						{film.summary}
+						<div className="summary_text">
+							{film.summary}
+						</div>
 					</td>
 				</tr>
 			</>
