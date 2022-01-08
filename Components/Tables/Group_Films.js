@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Table from './Table'
+import Group_Films_Table from './Group_Films_Table'
 
 export default class GroupFilms extends React.Component {
 	
@@ -10,7 +10,7 @@ export default class GroupFilms extends React.Component {
 				<h2>
 					Psyche Movie Club
 				</h2>
-				<Table group={this.state.group} />
+				<Group_Films_Table group={this.state.group} />
 			</div>
 		);
 	}
