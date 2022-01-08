@@ -2,6 +2,8 @@ import React from 'react';
 
 import GroupFilmsTable from './Table'
 
+import getb from '../../libraries/synchronous_requests'
+
 export default class GroupFilmsPage extends React.Component {
 	
 	render() {
@@ -10,54 +12,9 @@ export default class GroupFilmsPage extends React.Component {
 				<h2>
 					Psyche Movie Club
 				</h2>
-				<GroupFilmsTable group={this.state.group} />
+				<GroupFilmsTable />
 			</div>
 		);
-	}
-	
-	constructor(props) {
-		super(props)
-		this.state = {
-			group: [
-				'June',
-				'Tom',
-				'Wendy',
-				'Zarifa'
-			],
-			/*
-			films: [
-				{
-					title: 'The Discreet Charm of the Bourgeoisie',
-					year: 1972,
-					poster: '/media/posters/discreet_charm.jpg',
-					type: 'movie',
-					summary: 'A surreal, virtually plotless series of dreams centered around six middle-class people and their consistently interrupted attempts to have a meal together.',
-					rankings: [
-						{
-							name: 'June',
-							uid: 2,
-							ranking: 4
-						},
-						{
-							name: 'Tom',
-							uid: 1,
-							ranking: 3
-						},
-						{
-							name: 'Wendy',
-							uid: 3,
-							ranking: 2
-						},
-						{
-							name: 'Zarifa',
-							uid: 4,
-							ranking: 1
-						},
-					]
-				}
-			]
-			*/
-		}
 	}
 	
 }
