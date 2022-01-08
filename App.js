@@ -1,11 +1,11 @@
 import './Styles/All.css'
 
-import GroupFilms from './Components/Tables/Group_Films'
+import Group_Films_Page from './Components/Group_Films/Page'
 
 function App() {
 	return (
 		<div className="App">
-			<GroupFilms />
+			<Group_Films_Page />
 		</div>
 	);
 }

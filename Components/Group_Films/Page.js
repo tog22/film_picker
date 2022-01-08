@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Group_Films_Table from './Group_Films_Table'
+import Group_Films_Table from './Table'
 
-export default class GroupFilms extends React.Component {
+export default class Group_Films_Page extends React.Component {
 	
 	render() {
 		return (
