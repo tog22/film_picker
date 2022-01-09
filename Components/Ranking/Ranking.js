@@ -18,6 +18,22 @@ export default class Rankings extends React.Component {
 	render_ranking() {
 		
 		if (this.state.ranking) {
+			
+			var rimg
+			switch (this.state.ranking) {
+				case '4':
+					rimg = '👍'
+					break
+				case '3':
+					rimg = '👌'
+					break
+				case '2':
+					rimg = '🤷‍♂️'
+					break
+				case '1':
+					rimg = '👎'
+					break
+			}
 			return (
 				<>
 					<div className="do_rank">
@@ -36,31 +52,47 @@ export default class Rankings extends React.Component {
 						</div>
 						*/}
 						<div className="option" onClick={() => {
-							
+							this.props.change_ranking(4, this.props.fid, this.props.uid)
 						}}>
-							<div className="symbol">
-								👍
+							<div className="c_symbol">
+								<div className="symbol">
+									👍
+								</div>
 							</div>
 						</div>
-						<div className="option">
-							<div className="symbol">
-								👌
+						<div className="option" onClick={() => {
+							this.props.change_ranking(3, this.props.fid, this.props.uid)
+						}}>
+							<div className="c_symbol">
+								<div className="symbol">
+									👌
+								</div>
 							</div>
 						</div>
-						<div className="option">
-							<div className="symbol">
-								🤷‍♂️
+						<div className="option" onClick={() => {
+							this.props.change_ranking(2, this.props.fid, this.props.uid)
+						}}>
+							<div className="c_symbol">
+								<div className="symbol">
+									🤷‍♂️
+								</div>
 							</div>
 						</div>
-						<div className="option">
-							<div className="symbol">
-								👎
+						<div className="option" onClick={() => {
+							this.props.change_ranking(1, this.props.fid, this.props.uid)
+						}}>
+							<div className="c_symbol">
+								<div className="symbol">
+									👎
+								</div>
 							</div>
 						</div>
 					</div>
 					<div className='ranking'>
-						<div className="symbol">
-							{this.state.ranking}
+						<div className="c_symbol">
+							<div className="symbol">
+								{rimg}
+							</div>
 						</div>
 					</div>
 				</>

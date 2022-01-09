@@ -1,4 +1,5 @@
 import React from 'react';
+import update from 'immutability-helper';
 
 import Film from './Film'
 
@@ -39,13 +40,27 @@ export default class GroupFilmsTable extends React.Component {
 							// lo(film)
 							const key_name = 'gf'+fid
 							return (
-								<Film film={film} fid={fid} key={key_name} />
+								<Film 
+									film={film} 
+									fid={fid}
+									key={key_name}
+									change_ranking={this.change_ranking}
+								/>
 							)
 						}
 					)}
 				</tbody>
 			</table>
 		);
+	}
+	
+	change_ranking (ranking, fid, uid) {
+		lo(this)
+		this.setState({
+			films: update(
+				this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
+			)
+		});
 	}
 	
 	constructor(props) {
@@ -68,6 +83,10 @@ export default class GroupFilmsTable extends React.Component {
 			this.state,
 			'films'
 		)
+		
+		// Bind this in all methods
+		this.change_ranking = this.change_ranking.bind(this)
+		
 	}
 	
 }
