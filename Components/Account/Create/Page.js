@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Signup from './Form'
+import { Signup } from './Form'
 
 export default class CreateAccount extends React.Component {
 	
