@@ -10,7 +10,7 @@ export default class CreateAccount extends React.Component {
 				<h1>
 					🎞️ Film Picker
 				</h1>
-				<h2 class="page_title">
+				<h2 className="page_title">
 					Sign Up
 				</h2>
 				<Signup />
