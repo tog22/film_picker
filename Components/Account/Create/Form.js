@@ -78,7 +78,7 @@ export const Signup = () => (
 	  validate={validate}
 	  initialValues={{
 		full_name: '',
-		email: '',
+		first_name: '',
 		zip: '',
 	  }}
 	  onSubmit={values => {
@@ -100,23 +100,21 @@ export const Signup = () => (
 			  validate={isRequired('This field is required')}
 			  type="text"
 			/>
-			<ErrorMessage name="username" />
+			<ErrorMessage name="full_name" />
 		  </div>
 		  <br />
 		  <div>
 			<Field
-			  name="email"
+			  name="first_name"
 			  type="text"
-			  placeholder="email"
 			/>
-			<ErrorMessage name="email" />
+			<ErrorMessage name="first_name" />
 		  </div>
 		  <br />
 		  <div>
 			<Field
 			  name="zip"
 			  type="text"
-			  placeholder="zip"
 			/>
 			<ErrorMessage name="zip" />
 		  </div>
