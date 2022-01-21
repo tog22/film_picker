@@ -10,18 +10,15 @@ function submit_signup (values) {
 
 
 const Schema = Yup.object().shape({
-  email: Yup.string().required('This field is required'),
+	// email: Yup.string().required('This field is required'),
 });
 
 
-// A custom validation function. This must return an object which keys are symmetrical to our values/initialValues
+// A custom validation function.
 
 const validate_signup = values => {
 	
 	const errors = {
-		full_name: null,
-		first_name: null,
-		password: null
 	}
 	
 	if (!values.full_name) {
@@ -65,21 +62,16 @@ const isRequired = message => value => (!!value ? undefined : message)
 
 
 
-const validate = values => {
-	return {
-	};
-};
 
 export const Signup = () => (
   <div>
-	<h1>Pick a username</h1>
 	<Formik
-	  validationSchema={Schema}
-	  validate={validate}
+	  // validationSchema={Schema}
+	  validate={validate_signup}
 	  initialValues={{
 		full_name: '',
-		test_not_email: '',
-		password: '',
+		first_name: '',
+		password: ''
 	  }}
 	  onSubmit={values => {
 		alert(JSON.stringify(values, null, 2));
@@ -92,34 +84,60 @@ export const Signup = () => (
 		validateField,
 		validateForm,
 	  }) => (
-		<Form>
-		  <label htmlFor="full_name">Full name</label>
-		  <div>
-			<Field
-			  name="full_name"
-			  validate={isRequired('This field is required')}
-			  type="text"
-			/>
-			<ErrorMessage name="full_name" />
-		  </div>
-		  <br />
-		  <div>
-			<Field
-			  name="test_not_email"
-			  type="text"
-			/>
-			<ErrorMessage name="test_not_email" />
-		  </div>
-		  <br />
-		  <div>
-			<Field
-			  name="password"
-			  type="text"
-			/>
-			<ErrorMessage name="password" />
-		  </div>
-		  <br />
-		  <button type="submit">Submit</button>
+		<Form
+			id="create_account"
+			className="form1"
+		>
+			<div className="s_input_and_label">
+				<label htmlFor="full_name">
+					<div className="s_main">
+						Full name
+					</div>
+					<div className="s_details">
+						Or other username - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
+					</div>
+				</label>
+				<Field
+					name="full_name"
+					validate={isRequired('This field is required')}
+					type="text"
+				/>
+				<ErrorMessage name="full_name" />
+			</div>
+			<div className="s_input_and_label">
+				<label htmlFor="first_name">
+					<div className="s_main">
+						First name
+					</div>
+					<div className="s_details">
+						This'll show in a list of short names. If you prefer you can use another name, but it should be as short as a typical first name, and friends should quickly recognize you from from it.
+					</div>
+				</label>
+				<Field
+					name="first_name"
+					validate={isRequired('This field is required')}
+					type="text"
+				/>
+				<ErrorMessage name="first_name" />
+			</div>
+			<div className="s_input_and_label">
+				<label htmlFor="password">
+					<div className="s_main">
+						Password
+					</div>
+				</label>
+				<Field
+					name="password"
+					validate={isRequired('This field is required')}
+					type="text"
+				/>
+				<ErrorMessage name="password" />
+			</div>
+			<div className="s_submit">
+				<button type="submit">
+					Submit
+				</button>
+			</div>
 		</Form>
 	  )}
 	/>
