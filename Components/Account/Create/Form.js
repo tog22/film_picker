@@ -78,7 +78,7 @@ export const Signup = () => (
 	  validate={validate}
 	  initialValues={{
 		full_name: '',
-		email: '',
+		test_not_email: '',
 		password: '',
 	  }}
 	  onSubmit={values => {
@@ -105,10 +105,10 @@ export const Signup = () => (
 		  <br />
 		  <div>
 			<Field
-			  name="email"
+			  name="test_not_email"
 			  type="text"
 			/>
-			<ErrorMessage name="email" />
+			<ErrorMessage name="test_not_email" />
 		  </div>
 		  <br />
 		  <div>
