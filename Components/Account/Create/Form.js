@@ -65,14 +65,10 @@ const isRequired = message => value => (!!value ? undefined : message)
 
 
 
-// Async Validation
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const validate = values =>
-  sleep(300).then(() => {
+const validate = values => {
 	return {
 	};
-  });
+};
 
 export const Signup = () => (
   <div>
@@ -86,9 +82,7 @@ export const Signup = () => (
 		zip: '',
 	  }}
 	  onSubmit={values => {
-		sleep(500).then(() => {
-		  alert(JSON.stringify(values, null, 2));
-		});
+		alert(JSON.stringify(values, null, 2));
 	  }}
 	  render={({
 		errors,
