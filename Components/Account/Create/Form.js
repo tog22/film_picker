@@ -78,8 +78,8 @@ export const Signup = () => (
 	  validate={validate}
 	  initialValues={{
 		full_name: '',
-		first_name: '',
-		zip: '',
+		email: '',
+		password: '',
 	  }}
 	  onSubmit={values => {
 		alert(JSON.stringify(values, null, 2));
@@ -105,18 +105,18 @@ export const Signup = () => (
 		  <br />
 		  <div>
 			<Field
-			  name="first_name"
+			  name="email"
 			  type="text"
 			/>
-			<ErrorMessage name="first_name" />
+			<ErrorMessage name="email" />
 		  </div>
 		  <br />
 		  <div>
 			<Field
-			  name="zip"
+			  name="password"
 			  type="text"
 			/>
-			<ErrorMessage name="zip" />
+			<ErrorMessage name="password" />
 		  </div>
 		  <br />
 		  <button type="submit">Submit</button>
