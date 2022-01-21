@@ -77,7 +77,7 @@ export const Signup = () => (
 	  validationSchema={Schema}
 	  validate={validate}
 	  initialValues={{
-		username: '',
+		full_name: '',
 		email: '',
 		zip: '',
 	  }}
@@ -93,13 +93,12 @@ export const Signup = () => (
 		validateForm,
 	  }) => (
 		<Form>
-		  <label htmlFor="username">Username</label>
+		  <label htmlFor="full_name">Full name</label>
 		  <div>
 			<Field
-			  name="username"
+			  name="full_name"
 			  validate={isRequired('This field is required')}
 			  type="text"
-			  placeholder="username"
 			/>
 			<ErrorMessage name="username" />
 		  </div>
