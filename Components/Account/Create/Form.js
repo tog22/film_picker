@@ -58,6 +58,77 @@ const isRequired = message => value => (!!value ? undefined : message)
 
 
 
+// Async Validation
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const validate = values =>
+  sleep(300).then(() => {
+	return {
+	};
+  });
+
+export const Signup = () => (
+  <div>
+	<h1>Pick a username</h1>
+	<Formik
+	  validationSchema={Schema}
+	  validate={validate}
+	  initialValues={{
+		username: '',
+		email: '',
+		zip: '',
+	  }}
+	  onSubmit={values => {
+		sleep(500).then(() => {
+		  alert(JSON.stringify(values, null, 2));
+		});
+	  }}
+	  render={({
+		errors,
+		touched,
+		setFieldValue,
+		setFieldTouched,
+		validateField,
+		validateForm,
+	  }) => (
+		<Form>
+		  <label htmlFor="username">Username</label>
+		  <div>
+			<Field
+			  name="username"
+			  validate={isRequired('This field is required')}
+			  type="text"
+			  placeholder="username"
+			/>
+			<ErrorMessage name="username" />
+		  </div>
+		  <br />
+		  <div>
+			<Field
+			  name="email"
+			  type="text"
+			  placeholder="email"
+			/>
+			<ErrorMessage name="email" />
+		  </div>
+		  <br />
+		  <div>
+			<Field
+			  name="zip"
+			  type="text"
+			  placeholder="zip"
+			/>
+			<ErrorMessage name="zip" />
+		  </div>
+		  <br />
+		  <button type="submit">Submit</button>
+		</Form>
+	  )}
+	/>
+  </div>
+);
+
+/*
 export const Signup = () => (
   <div>
 	<Formik
@@ -138,7 +209,7 @@ export const Signup = () => (
 	/>
   </div>
 );
-
+*/
 
 let l = function (to_log) { 
 	console.log(to_log) 
