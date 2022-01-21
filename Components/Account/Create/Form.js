@@ -2,6 +2,13 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+
+
+function submit_signup (values) {
+	
+}
+
+
 const Schema = Yup.object().shape({
   email: Yup.string().required('This field is required'),
 });
@@ -46,7 +53,10 @@ const validate_signup = values => {
 }
 
 // Exra validation applied on a field-by-field basis for only required fields
-const isRequired = message => value => (!!value ? undefined : message);
+const isRequired = message => value => (!!value ? undefined : message)
+
+
+
 
 export const Signup = () => (
   <div>
