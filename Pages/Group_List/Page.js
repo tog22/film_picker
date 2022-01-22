@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Outlet } from "react-router-dom";
+import YourGroups from '../../Components/Groups/Your_Groups'
 
 export default class GroupList extends React.Component {
 	
@@ -12,7 +12,7 @@ export default class GroupList extends React.Component {
 		*/
 		
 		return (
-			<Outlet />
+			<YourGroups />
 		)
 	}
 	

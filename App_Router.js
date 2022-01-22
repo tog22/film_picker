@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes, Link, BrowserRouter } from 'react-router-dom'
 
+import GroupOutlet from './Pages/Group/Outlet'
 import GroupList from './Pages/Group_List/Page'
 import GroupFilms from './Pages/Group_Films/Page'
 import UserMenu from './Pages/User/Menu/Page'
@@ -16,8 +17,9 @@ export default class Router extends React.Component {
 				<Routes>
 					<Route path='/' element={<Chrome />}>
 						<Route path='*' element={<NoPage404 />} />
-						<Route path='/group' element={<GroupList />}>
+						<Route path='/group' element={<GroupOutlet />}>
 							<Route path=":group_id" element={<GroupFilms />} />
+							<Route index element={<GroupList />} />
 						</Route>
 						<Route path='/signup' element={<CreateAccount />} />
 						<Route path='/user' element={<UserMenu />} />
