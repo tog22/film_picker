@@ -1,6 +1,6 @@
 import React from 'react'
 
-import YourGroups from '../../Components/Groups/Your_Groups'
+import YourGroups from '../../../Components/Groups/Your_Groups'
 
 export default class GroupList extends React.Component {
 	

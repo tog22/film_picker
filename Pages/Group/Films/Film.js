@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../Styles/Film.scoped.css'
+import '../../../Styles/Film.scoped.css'
 
-import Ranking from '../Ranking/Ranking'
+import Ranking from '../../Ranking/Ranking'
 
-import tog from '../../Libraries/tog'
+import tog from '../../../Libraries/tog'
 
 export default class Film extends React.Component {
 	
