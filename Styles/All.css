@@ -25,11 +25,24 @@ th {
 	text-align: left;
 }
 
+/* headers */
+
+h3.subheading {
+	font-size: 1.3em;
+}
+
 /* nav */
 
 #site_title a {
 	color: white;
 	text-decoration: none;
+}
+
+/* Menus */
+
+.menu_list li {
+	margin-bottom: 0.3em;
+	font-weight: bold;
 }
 
 /* tables */

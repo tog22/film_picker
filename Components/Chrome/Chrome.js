@@ -15,8 +15,12 @@ export default class Chrome extends React.Component {
 					Group
 				</Link>
 				<span> | </span>
+				<Link to='/user'>
+					User Menu
+				</Link>
+				<span> | </span>
 				<Link to='/signup'>
-					Signup
+					Sign Up
 				</Link>
 				<Outlet />
 			</>
