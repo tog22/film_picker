@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../Styles/Ranking.scoped.css'
 
-import tog from '../../libraries/tog'
+import tog from '../../Libraries/tog'
 
 export default class Rankings extends React.Component {
 	

@@ -3,7 +3,7 @@ import '../../Styles/Film.scoped.css'
 
 import Ranking from '../Ranking/Ranking'
 
-import tog from '../../libraries/tog'
+import tog from '../../Libraries/tog'
 
 export default class Film extends React.Component {
 	

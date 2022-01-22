@@ -3,8 +3,8 @@ import update from 'immutability-helper';
 
 import Film from './Film'
 
-import tog from '../../libraries/tog'
-import getb from '../../libraries/synchronous_requests'
+import tog from '../../Libraries/tog'
+import getb from '../../Libraries/synchronous_requests'
 
 export default class GroupFilmsTable extends React.Component {
 	
