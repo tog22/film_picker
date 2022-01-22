@@ -20,6 +20,15 @@ export default class UserMenu extends React.Component {
 					Your groups
 				</h3>
 				<ul class="menu_list">
+					{groups.map(group => 
+						(
+							<li>
+								<Link to={`/group/${group.id}`} key={group.id}>
+									{group.name}
+								</Link>
+							</li>
+						)
+					)}
 					<li>
 						Create a group
 					</li>
