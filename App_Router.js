@@ -13,7 +13,9 @@ export default class Router extends React.Component {
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<Chrome />}>
-						<Route path='/group' element={<GroupFilms />}></Route>
+						<Route path='/group' element={<GroupFilms />}>
+							<Route path=":group_id" element={<GroupFilms />} />
+						</Route>
 						<Route path='/signup' element={<CreateAccount />}></Route>
 						<Route path='/user' element={<UserMenu />}></Route>
 					</Route>
