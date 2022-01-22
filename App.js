@@ -1,4 +1,4 @@
-import Router from './Components/Router/Router'
+import Router from './App_Router'
 
 import './Styles/All.css'
 
