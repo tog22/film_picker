@@ -4,7 +4,7 @@ import GroupFilmsTable from './Table'
 
 import getb from '../../libraries/synchronous_requests'
 
-export default class GroupFilmsPage extends React.Component {
+export default class GroupFilms extends React.Component {
 	
 	render() {
 		return (

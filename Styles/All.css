@@ -11,6 +11,7 @@ code {
 	monospace;
 }
 
+/* resets */
 
 body {
 	margin: 20px;
@@ -23,6 +24,15 @@ table {
 th {
 	text-align: left;
 }
+
+/* nav */
+
+#site_title a {
+	color: white;
+	text-decoration: none;
+}
+
+/* tables */
 
 .big_table {
 	display: table;

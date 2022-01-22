@@ -1,13 +1,11 @@
-import './Styles/All.css'
+import Router from './Components/Router/Router'
 
-import GroupFilms from './Components/Tables/Group_Films'
-import CreateAccount from './Components/Account/Create/Page'
+import './Styles/All.css'
 
 function App() {
 	return (
 		<div className="App">
-			<CreateAccount />
-			{/*<GroupFilms />*/}
+			<Router />
 		</div>
 	);
 }

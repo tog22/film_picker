@@ -107,7 +107,7 @@ export const Signup = () => (
 						Full name
 					</div>
 					<div className="s_details">
-						…<em>or</em> other <span style={{underline: 'dotted'}}>username</span> - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
+						…<em>or</em> other <span style={{textDecoration: 'dotted'}}>username</span> - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
 					</div>
 				</label>
 				<Field
