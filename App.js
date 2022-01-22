@@ -1,13 +1,13 @@
 import './Styles/All.css'
 
-import GroupFilmsPage from './Components/Group_Films/Page'
-import Dogs from './Components/Test/Simple/Dogs'
+import GroupFilms from './Components/Tables/Group_Films'
+import CreateAccount from './Components/Account/Create/Page'
 
 function App() {
 	return (
 		<div className="App">
-			<Dogs />
-			{/* <GroupFilmsPage />*/}
+			<CreateAccount />
+			{/*<GroupFilms />*/}
 		</div>
 	);
 }

@@ -81,3 +81,28 @@ th {
 	border-top: 1px solid #eee;
 }
 
+/* forms */
+
+.form1 .s_input_and_label {
+	margin-bottom: 1.5em;
+}
+
+.form1 label .s_main {
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+.form1 .s_details {
+	display: none;
+}
+
+.form1 input[type="text"],
+.form1 input[type="password"] {
+	font-size: 1.5em;
+}
+
+.form1 button,
+.form1 input[type="submit"] {
+	padding: 0.3em 0.75em;
+	font-size: 1.1em;
+}
