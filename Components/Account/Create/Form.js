@@ -6,6 +6,19 @@ import * as Yup from 'yup';
 
 function submit_signup (values) {
 	
+	var server_request = new XMLHttpRequest();
+	let get_url = 'https://filmpicker.philosofiles.com/sync/?action=signup&full_name='+values.full_name+'&first_name='+values.first_name+'&password='+values.password
+	server_request.open("GET", get_url, false) // false = synchronous
+	server_request.send()
+	const response = JSON.parse(server_request.responseText)	
+				
+	if (response.result !== 'success') {
+		alert('Signup unsuccessful')
+		return
+	}
+	
+	
+	
 }
 
 
@@ -35,7 +48,7 @@ const validate_signup = values => {
 
 	if (!values.password) {
 		errors.password = 'Required';
-	} else if (values.first_name.length > 20) {	
+	} else if (values.password.length > 20) {	
 		errors.password = 'Must be 20 characters or less';
 	}
 
@@ -74,7 +87,7 @@ export const Signup = () => (
 		password: ''
 	  }}
 	  onSubmit={values => {
-		alert(JSON.stringify(values, null, 2));
+		submit_signup(values)
 	  }}
 	  render={({
 		errors,
@@ -94,7 +107,7 @@ export const Signup = () => (
 						Full name
 					</div>
 					<div className="s_details">
-						Or other username - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
+						…<em>or</em> other <span style={{underline: 'dotted'}}>username</span> - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
 					</div>
 				</label>
 				<Field
