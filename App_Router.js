@@ -3,7 +3,7 @@ import { Route, Routes, Link, BrowserRouter } from 'react-router-dom'
 
 import Chrome from './Components/Chrome/Chrome'
 import GroupFilms from './Pages/Group_Films/Page'
-import CreateAccount from './Pages/Account/Create/Page'
+import CreateAccount from './Pages/User/Create/Page'
 
 export default class Router extends React.Component {
 	
