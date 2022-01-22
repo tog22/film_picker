@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { class_to_make_dummy_server } from '../../Dummy_Server/Data'
 import tog from '../../Libraries/tog'
 
-let dummy_server = new class_to_make_dummy_server
+let dummy_server = new class_to_make_dummy_server()
 let groups = dummy_server.groups()
 
 export default class YourGroups extends React.Component {
@@ -21,7 +21,7 @@ export default class YourGroups extends React.Component {
 				<h3 className="subheading">
 					Your groups
 				</h3>
-				<ul class="menu_list">
+				<ul className="menu_list">
 					{tog.objects.map_numeric_obj_to_array(
 						groups, 
 						(group, id) => {

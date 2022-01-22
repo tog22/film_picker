@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { class_to_make_dummy_server } from '../../../Dummy_Server/Data'
 import getb from '../../../Libraries/synchronous_requests'
 
-let dummy_server = new class_to_make_dummy_server
+let dummy_server = new class_to_make_dummy_server()
 let groups = dummy_server.groups()
 
 export default function GroupFilms() {

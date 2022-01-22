@@ -28,11 +28,12 @@ export default class Rankings extends React.Component {
 				case '3':
 					rimg = '👌'
 					break
-				case '2':
-					rimg = '🤷‍♂️'
-					break
 				case '1':
 					rimg = '👎'
+					break
+				default:
+				case '2':
+					rimg = '🤷‍♂️'
 					break
 			}
 			return (
