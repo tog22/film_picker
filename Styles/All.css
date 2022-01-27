@@ -45,6 +45,26 @@ h3.subheading {
 	font-weight: bold;
 }
 
+/* buttons */
+
+.button_row {
+	margin: 2em 0;
+}
+
+a.button {
+	display: inline-block;
+	text-decoration: none;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 0.7em 1.6em;
+	border-radius: 8px;
+}
+
+a.button:hover {
+	text-decoration: underline;
+}
+
 /* tables */
 
 .big_table {

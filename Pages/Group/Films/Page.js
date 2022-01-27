@@ -2,7 +2,7 @@ import React from 'react';
 
 import GroupFilmsTable from './Table'
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { class_to_make_dummy_server } from '../../../Dummy_Server/Data'
 import getb from '../../../Libraries/synchronous_requests'
 
@@ -13,13 +13,23 @@ export default function GroupFilms() {
 	
 	let params = useParams();
 	let group = groups[params.group_id]
+	let user = 1
 	
 	return (
 		<div>
+			
 			<h2>
 				{group.name}
 			</h2>
+			
 			<GroupFilmsTable />
+			
+			<div class="button_row">
+				<Link to="/add" className="button">
+					Add Film
+				</Link>
+			</div>
+			
 		</div>
 	);
 	
