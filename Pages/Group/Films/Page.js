@@ -24,7 +24,7 @@ export default function GroupFilms() {
 			
 			<GroupFilmsTable />
 			
-			<div class="button_row">
+			<div className="button_row">
 				<Link to="/add" className="button">
 					Add Film
 				</Link>

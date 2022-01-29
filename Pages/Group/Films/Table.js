@@ -46,6 +46,7 @@ export default class GroupFilmsTable extends React.Component {
 									key={key_name}
 									change_ranking={this.change_ranking}
 								/>
+								
 							)
 						}
 					)}
@@ -56,9 +57,17 @@ export default class GroupFilmsTable extends React.Component {
 	
 	change_ranking (ranking, fid, uid) {
 		lo(this)
+		// this.setState({
+		// 	films: update(
+		// 		this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
+		// 	)
+		// });
+		lo(ranking)
+		lo(fid)
+		lo(uid)
 		this.setState({
 			films: update(
-				this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
+				this.state.films, {[1]: {rankings: {[1]: {ranking: {$set: ranking}}}}}
 			)
 		});
 	}

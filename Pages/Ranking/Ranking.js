@@ -115,7 +115,7 @@ export default class Rankings extends React.Component {
 		
 		super(props)
 		this.state = {}
-		this.state.ranking = props.rprop
+		this.state.ranking = props.ranking
 		
 	}
 	

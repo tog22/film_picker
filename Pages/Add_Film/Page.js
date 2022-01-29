@@ -6,8 +6,8 @@ export default function AddFilm() {
 	
 
 	return (
-		<div class="page">
-			<h2 class="page_title">
+		<div className="page">
+			<h2 className="page_title">
 				Add Film
 			</h2>
 			<AddFilmForm />

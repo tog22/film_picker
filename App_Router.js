@@ -9,6 +9,7 @@ import UserMenu from './Pages/User/Menu/Page'
 import CreateAccount from './Pages/User/Create/Page'
 import Chrome from './Components/Chrome/Chrome'
 import NoPage404 from './Pages/Errors/404'
+import Dogs from './Pages/DogsTest/Simple/Dogs'
 
 export default class Router extends React.Component {
 	
@@ -25,6 +26,7 @@ export default class Router extends React.Component {
 						<Route path='/add' element={<AddFilm />} />
 						<Route path='/user' element={<UserMenu />} />
 						<Route path='/signup' element={<CreateAccount />} />
+						<Route path='/dogs' element={<Dogs />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

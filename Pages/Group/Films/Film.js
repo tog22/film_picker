@@ -26,6 +26,7 @@ export default class Film extends React.Component {
 							</div>
 							<div>
 								{film.year}, {film.director}
+								{film['rankings'][1]['ranking']}
 							</div>
 						</div>
 					</td>
@@ -38,7 +39,7 @@ export default class Film extends React.Component {
 								return (
 									<td className="rcell cell" key={key_name}>
 										<Ranking 
-											rprop={ranking['ranking']}
+											ranking={ranking['ranking']}
 											uid={uid}
 											fid={film.fid}
 											change_ranking={this.props.change_ranking}
