@@ -1,6 +1,8 @@
 import React from 'react';
 import update from 'immutability-helper';
 
+import bus from '../../../Backing/Bus'
+
 import Film from './Film'
 
 import tog from '../../../Libraries/tog'
@@ -96,6 +98,16 @@ export default class GroupFilmsTable extends React.Component {
 		// Bind this in all methods
 		this.change_ranking = this.change_ranking.bind(this)
 		
+	}
+	
+	componentDidMount() {
+		bus.on("firebase", (data) =>
+			console.log('from Table.js: '+data.text)
+		);
+	}
+	
+	componentWillUnmount() {
+		bus.remove("firebase");
 	}
 	
 }
