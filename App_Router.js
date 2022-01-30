@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes, Link, BrowserRouter } from 'react-router-dom'
 
 import GroupOutlet from './Pages/Group/Outlet'
@@ -11,26 +11,24 @@ import Chrome from './Components/Chrome/Chrome'
 import NoPage404 from './Pages/Errors/404'
 import Dogs from './Pages/DogsTest/Simple/Dogs'
 
-export default class Router extends React.Component {
+export default function Router() {
 	
-	render() {
-		return (
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<Chrome />}>
-						<Route path='*' element={<NoPage404 />} />
-						<Route path='/group' element={<GroupOutlet />}>
-							<Route path=":group_id" element={<GroupFilms />} />
-							<Route index element={<GroupList />} />
-						</Route>
-						<Route path='/add' element={<AddFilm />} />
-						<Route path='/user' element={<UserMenu />} />
-						<Route path='/signup' element={<CreateAccount />} />
-						<Route path='/dogs' element={<Dogs />} />
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Chrome />}>
+					<Route path='*' element={<NoPage404 />} />
+					<Route path='/group' element={<GroupOutlet />}>
+						<Route path=":group_id" element={<GroupFilms />} />
+						<Route index element={<GroupList />} />
 					</Route>
-				</Routes>
-			</BrowserRouter>
-		)
-	}
+					<Route path='/add' element={<AddFilm />} />
+					<Route path='/user' element={<UserMenu />} />
+					<Route path='/signup' element={<CreateAccount />} />
+					<Route path='/dogs' element={<Dogs />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	)
 	
 }

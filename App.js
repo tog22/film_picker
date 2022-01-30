@@ -4,7 +4,7 @@ import Router from './App_Router'
 
 import './Styles/All.css'
 
-function App({ messaging }) {
+export default function App({ messaging }) {
 	
 	const [cloudMessage, setCloudMessage] = useState({})
 
@@ -29,5 +29,3 @@ function App({ messaging }) {
 		</div>
 	);
 }
-
-export default App;
