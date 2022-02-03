@@ -1,8 +1,11 @@
 import React from 'react';
 
+import tog from '../../Libraries/tog'
+import bus from '../../Backing/Bus'
+
+
 import '../../Styles/Ranking.scoped.css'
 
-import tog from '../../Libraries/tog'
 
 export default class Rankings extends React.Component {
 	
@@ -109,6 +112,17 @@ export default class Rankings extends React.Component {
 		
 	}
 	
+	
+	
+	componentDidMount() {
+		bus.on("changed_ranking", (data) =>
+			alert(data)
+		);
+	}
+	
+	componentWillUnmount() {
+		bus.remove("changed_ranking");
+	}
 	
 	
 	constructor(props) {

@@ -54,6 +54,8 @@ Animation
 Numbers
 	random_from(array)
 Strings
+Error-Catching
+	parse_json
 
 **************************/
 
@@ -283,6 +285,33 @@ var tog = {
 					return (!str || str.length === 0 );
 				}
 		*/
+	},
+	
+	/*********************
+	**					**
+	**  ERROR-CATCHING  **
+	**    (not in an	**
+	**      object)		**
+	**					**
+	*********************/
+	
+	parse_json:
+	function(json) {
+		let object
+		try {
+			object = JSON.parse(json)
+		} catch (error) {
+			let stringified_error = JSON.stringify(error)
+			if (error instanceof SyntaxError) {
+				lo('SyntaxError: '+stringified_error)
+				alert('SyntaxError: '+stringified_error)
+			} else {
+				let to_show = 'Non-SyntaxError: '+stringified_error
+				lo(to_show)
+				alert(to_show)
+			}
+		}
+		return object
 	}
 	
 };

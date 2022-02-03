@@ -7,11 +7,11 @@ import App from './App'
 const messaging = firebase.messaging()
 
 messaging.requestPermission().then((token) => {
-  return messaging.getToken()
+	return messaging.getToken()
 }).then((token) => {
-  console.log('token: ' + token)
+	console.log('token: ' + token)
 }).catch((error) => {
-  console.error(error)
+	console.error(error)
 })
 
 ReactDOM.render(
