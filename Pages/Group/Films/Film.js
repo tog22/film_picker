@@ -8,7 +8,6 @@ import tog from '../../../Libraries/tog'
 export default class Film extends React.Component {
 	
 	render() {
-		lo('render film')
 		const film = this.props.film
 		return (
 			<>
@@ -30,7 +29,6 @@ export default class Film extends React.Component {
 							</div>
 						</div>
 					</td>
-					{lo(film['rankings'])}
 					{
 						tog.objects.map_numeric_obj_to_array(
 							film['rankings'], 

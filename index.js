@@ -8,8 +8,6 @@ const messaging = firebase.messaging()
 
 messaging.requestPermission().then((token) => {
 	return messaging.getToken()
-}).then((token) => {
-	console.log('token: ' + token)
 }).catch((error) => {
 	console.error(error)
 })

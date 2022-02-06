@@ -58,20 +58,17 @@ export default class GroupFilmsTable extends React.Component {
 	}
 	
 	change_ranking (ranking, fid, uid) {
-		lo(this)
 		// this.setState({
 		// 	films: update(
 		// 		this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
 		// 	)
 		// });
-		lo(ranking)
-		lo(fid)
-		lo(uid)
 		this.setState({
 			films: update(
 				this.state.films, {[1]: {rankings: {[1]: {ranking: {$set: ranking}}}}}
 			)
 		});
+		lo(uid)
 	}
 	
 	constructor(props) {
@@ -101,8 +98,8 @@ export default class GroupFilmsTable extends React.Component {
 	}
 	
 	componentDidMount() {
-		bus.on("firebase", (data) =>
-			console.log('from Table.js: '+data.text)
+		bus.on("changed_ranking", (change) =>
+			this.change_ranking(change.ranking, change.film, change.user)
 		);
 	}
 	

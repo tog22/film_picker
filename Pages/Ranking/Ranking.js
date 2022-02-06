@@ -19,7 +19,6 @@ export default class Rankings extends React.Component {
 	}
 	
 	render_ranking() {
-		lo('render ranking')
 		
 		if (this.state.ranking) {
 			
@@ -110,20 +109,7 @@ export default class Rankings extends React.Component {
 			);
 		}
 		
-	}
-	
-	
-	
-	componentDidMount() {
-		bus.on("changed_ranking", (data) =>
-			alert(data)
-		);
-	}
-	
-	componentWillUnmount() {
-		bus.remove("changed_ranking");
-	}
-	
+	}	
 	
 	constructor(props) {
 		

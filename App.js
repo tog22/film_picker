@@ -12,13 +12,7 @@ export default function App({ messaging }) {
 
 	messaging.onMessage((message) => {
 
-		
-		console.log('Message received. ' + JSON.stringify(message))
-		// Example
-		// {"message":{"data":{"gcm.n.e":"1","google.c.a.ts":"1643485190","google.c.a.udt":"0","google.c.a.e":"1","google.c.a.c_id":"7515782350171140429","google.c.a.c_l":"dfffsd"},"from":"476060464418","priority":"high","notification":{"title":"dfffsd","body":"fdfsdf","tag":"campaign_collapse_key_7515782350171140429"},"fcmMessageId":"81761ee3-10a5-4f6a-954a-c23dfbe53ee7","collapse_key":"campaign_collapse_key_7515782350171140429"}}
 		setCloudMessage({ ...cloudMessage, message })
-		
-		bus.dispatch("firebase", { message: message, text: JSON.stringify(message) });
 		
 		switch (message.notification.title) {
 			case 'changed_ranking':

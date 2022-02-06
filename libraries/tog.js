@@ -2,7 +2,7 @@
 ******************
 **              **
 **    tog.js    **
-**    (v1.04)   **
+**    (v1.05)   **
 **              **
 ******************
 *****************/
@@ -307,8 +307,6 @@ var tog = {
 				alert('SyntaxError: '+stringified_error)
 			} else {
 				let to_show = 'Non-SyntaxError: '+stringified_error
-				lo(to_show)
-				alert(to_show)
 			}
 		}
 		return object
