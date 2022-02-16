@@ -11,6 +11,7 @@ import getb from '../../../Libraries/synchronous_requests'
 export default class GroupFilmsTable extends React.Component {
 	
 	render() {
+		lo('render table')
 		return (
 			<table className="group_films big_table">
 				<thead>
