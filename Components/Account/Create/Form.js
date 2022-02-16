@@ -2,19 +2,36 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+
+
+function submit_signup (values) {
+	
+	var server_request = new XMLHttpRequest();
+	let get_url = 'https://filmpicker.philosofiles.com/sync/?action=signup&full_name='+values.full_name+'&first_name='+values.first_name+'&password='+values.password
+	server_request.open("GET", get_url, false) // false = synchronous
+	server_request.send()
+	const response = JSON.parse(server_request.responseText)	
+				
+	if (response.result !== 'success') {
+		alert('Signup unsuccessful')
+		return
+	}
+	
+	
+	
+}
+
+
 const Schema = Yup.object().shape({
-  email: Yup.string().required('This field is required'),
+	// email: Yup.string().required('This field is required'),
 });
 
 
-// A custom validation function. This must return an object which keys are symmetrical to our values/initialValues
+// A custom validation function.
 
 const validate_signup = values => {
 	
 	const errors = {
-		full_name: null,
-		first_name: null,
-		password: null
 	}
 	
 	if (!values.full_name) {
@@ -31,7 +48,7 @@ const validate_signup = values => {
 
 	if (!values.password) {
 		errors.password = 'Required';
-	} else if (values.first_name.length > 20) {	
+	} else if (values.password.length > 20) {	
 		errors.password = 'Must be 20 characters or less';
 	}
 
@@ -45,8 +62,19 @@ const validate_signup = values => {
 
 }
 
+
+let l = function (to_log) { 
+	console.log(to_log) 
+}
+
+let lo = l
+
+
 // Exra validation applied on a field-by-field basis for only required fields
-const isRequired = message => value => (!!value ? undefined : message);
+const isRequired = message => value => (!!value ? undefined : message)
+
+
+
 
 function submit_signup(values) {
 	alert(JSON.stringify(values, null, 2));
@@ -55,7 +83,7 @@ function submit_signup(values) {
 export const Signup = () => (
   <div>
 	<Formik
-	  validationSchema={Schema}
+	  // validationSchema={Schema}
 	  validate={validate_signup}
 	  initialValues={{
 		full_name: '',
@@ -63,7 +91,7 @@ export const Signup = () => (
 		password: ''
 	  }}
 	  onSubmit={values => {
-		alert(JSON.stringify(values, null, 2));
+		submit_signup(values)
 	  }}
 	  render={({
 		errors,
@@ -83,7 +111,7 @@ export const Signup = () => (
 						Full name
 					</div>
 					<div className="s_details">
-						Or other username - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
+						…<em>or</em> other <span style={{underline: 'dotted'}}>username</span> - we recommend your full name so friends can recognize you quickly from it, even ones from new movie clubs you join later.
 					</div>
 				</label>
 				<Field
@@ -132,10 +160,3 @@ export const Signup = () => (
 	/>
   </div>
 );
-
-
-let l = function (to_log) { 
-	console.log(to_log) 
-}
-
-let lo = l

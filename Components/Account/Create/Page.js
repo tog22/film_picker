@@ -19,4 +19,3 @@ export default class CreateAccount extends React.Component {
 	}
 	
 }
-				
