@@ -48,6 +48,10 @@ const validate_signup = values => {
 // Exra validation applied on a field-by-field basis for only required fields
 const isRequired = message => value => (!!value ? undefined : message);
 
+function submit_signup(values) {
+	alert(JSON.stringify(values, null, 2));
+}
+
 export const Signup = () => (
   <div>
 	<Formik
