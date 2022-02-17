@@ -58,7 +58,16 @@ export default class GroupFilmsTable extends React.Component {
 		);
 	}
 	
+	
 	update_remote_ranking(ranking, fid, uid) {
+		
+		getb.basic('https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+fid+'&user='+uid+'&ranking='+ranking)
+		this.update_local_ranking(ranking, fid, uid)
+		
+	}
+	
+	
+	update_local_ranking(ranking, fid, uid) {
 		// this.setState({
 		// 	films: update(
 		// 		this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
@@ -69,8 +78,8 @@ export default class GroupFilmsTable extends React.Component {
 				this.state.films, {[1]: {rankings: {[1]: {ranking: {$set: ranking}}}}}
 			)
 		});
-		lo(uid)
 	}
+	
 	
 	constructor(props) {
 		
@@ -94,7 +103,8 @@ export default class GroupFilmsTable extends React.Component {
 		)
 		
 		// Bind this in all methods
-		this.change_ranking = this.change_ranking.bind(this)
+		this.update_remote_ranking = this.update_remote_ranking.bind(this)
+		this.update_local_ranking = this.update_local_ranking.bind(this)
 		
 	}
 	
