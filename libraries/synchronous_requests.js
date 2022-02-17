@@ -42,10 +42,10 @@ var getb = {
 		}
 		
 		if ('result' in response) {
-			if (response_result === 'success') {
+			if (response.result === 'success') {
 				return response.body
 			} else {
-				'response.result != success'
+				lo('response.result != success')
 			}
 		} else {
 			lo('response.result not reported')
