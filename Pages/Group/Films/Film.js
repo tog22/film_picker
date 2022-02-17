@@ -25,7 +25,6 @@ export default class Film extends React.Component {
 							</div>
 							<div>
 								{film.year}, {film.director}
-								{film['rankings'][1]['ranking']}
 							</div>
 						</div>
 					</td>
@@ -57,6 +56,11 @@ export default class Film extends React.Component {
 						*/}
 						<div className="summary_text">
 							{film.summary}
+						</div>
+						
+						<div style={{'margin': '1em 0'}}>
+							Tom's ranking:&nbsp; 
+							{film['rankings'][1]['ranking']}
 						</div>
 					</td>
 				</tr>

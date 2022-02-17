@@ -58,7 +58,7 @@ export default class GroupFilmsTable extends React.Component {
 		);
 	}
 	
-	change_ranking (ranking, fid, uid) {
+	update_remote_ranking(ranking, fid, uid) {
 		// this.setState({
 		// 	films: update(
 		// 		this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
@@ -100,7 +100,7 @@ export default class GroupFilmsTable extends React.Component {
 	
 	componentDidMount() {
 		bus.on("changed_ranking", (change) =>
-			this.change_ranking(change.ranking, change.film, change.user)
+			this.update_remote_ranking(change.ranking, change.film, change.user)
 		);
 	}
 	
