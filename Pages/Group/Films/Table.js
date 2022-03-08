@@ -47,7 +47,8 @@ export default class GroupFilmsTable extends React.Component {
 									film={film} 
 									fid={fid}
 									key={key_name}
-									change_ranking={this.change_ranking}
+									update_local_ranking={this.update_local_ranking}
+									update_remote_ranking={this.update_remote_ranking}
 								/>
 								
 							)
@@ -61,7 +62,9 @@ export default class GroupFilmsTable extends React.Component {
 	
 	update_remote_ranking(ranking, fid, uid) {
 		
-		let was_updated = getb.basic_ec('https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+fid+'&user='+uid+'&ranking='+ranking)
+		let url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+fid+'&user='+uid+'&ranking='+ranking
+		lo(url)
+		let was_updated = getb.basic_ec(url)
 		if (was_updated) {
 			this.update_local_ranking(ranking, fid, uid)
 		} else {

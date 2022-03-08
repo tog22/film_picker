@@ -39,7 +39,8 @@ export default class Film extends React.Component {
 											ranking={ranking['ranking']}
 											uid={uid}
 											fid={film.fid}
-											change_ranking={this.props.change_ranking}
+											update_local_ranking={this.update_local_ranking}
+											update_remote_ranking={this.update_remote_ranking}
 										/>
 									</td>
 								)
