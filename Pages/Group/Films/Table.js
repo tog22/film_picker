@@ -11,7 +11,6 @@ import getb from '../../../Libraries/synchronous_requests'
 export default class GroupFilmsTable extends React.Component {
 	
 	render() {
-		lo('render table')
 		return (
 			<table className="group_films big_table">
 				<thead>
@@ -58,10 +57,11 @@ export default class GroupFilmsTable extends React.Component {
 		);
 	}
 	
-	change_ranking (ranking, fid, uid) {
+	change_ranking (ranking, film, user) {
+		
 		// this.setState({
 		// 	films: update(
-		// 		this.state.films, {[fid]: {rankings: {[uid]: {ranking: {$set: ranking}}}}}
+		// 		this.state.films, {[film]: {rankings: {[user]: {ranking: {$set: ranking}}}}}
 		// 	)
 		// });
 		this.setState({
@@ -69,7 +69,11 @@ export default class GroupFilmsTable extends React.Component {
 				this.state.films, {[1]: {rankings: {[1]: {ranking: {$set: ranking}}}}}
 			)
 		});
-		lo(uid)
+		getb.basic(
+			'https://filmpicker.philosofiles.com/sync/?action=update_ranking&user='+user+'&film='+film+'&ranking='+ranking
+		);
+		// TODO: send FBase message
+		
 	}
 	
 	constructor(props) {

@@ -20,7 +20,6 @@ export default class Rankings extends React.Component {
 	
 	render_ranking() {
 		
-		lo('render ranking')
 		if (this.state.ranking) {
 			
 			var rimg
