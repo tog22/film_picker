@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 
 function do_search (values) {
 	
+	// TO DO: Ajax query the IMDB API I found
+	
+	/*
 	var server_request = new XMLHttpRequest();
 	let get_url = 'https://filmpicker.philosofiles.com/sync/?action=signup&full_name='+values.full_name+'&first_name='+values.first_name+'&password='+values.password
 	server_request.open("GET", get_url, false) // false = synchronous
@@ -21,6 +24,7 @@ function do_search (values) {
 	} else {
 		return true
 	}
+	*/
 	
 }
 
