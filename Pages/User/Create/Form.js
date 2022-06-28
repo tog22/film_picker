@@ -81,7 +81,7 @@ const isRequired = message => value => (!!value ? undefined : message)
 
 export const Signup = () => {
 	
-	const navigate_hook = useNavigate()
+	const navigate_to = useNavigate()
 	
 	return (
 		<div>
@@ -95,7 +95,7 @@ export const Signup = () => {
 			  }}
 			  onSubmit={values => {
 				if (submit_signup(values)) {
-					navigate_hook('/user')
+					navigate_to('/user')
 				}
 				
 			  }}
