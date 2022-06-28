@@ -56,7 +56,7 @@ export default class Rankings extends React.Component {
 						</div>
 						*/}
 						<div className="option" onClick={() => {
-							this.props.change_ranking('4', this.props.fid, this.props.uid)
+							this.props.update_remote_ranking('4', this.props.fid, this.props.uid)
 						}}>
 							<div className="c_symbol">
 								<div className="symbol">
@@ -65,7 +65,7 @@ export default class Rankings extends React.Component {
 							</div>
 						</div>
 						<div className="option" onClick={() => {
-							this.props.change_ranking('3', this.props.fid, this.props.uid)
+							this.props.update_remote_ranking('3', this.props.fid, this.props.uid)
 						}}>
 							<div className="c_symbol">
 								<div className="symbol">
@@ -74,7 +74,7 @@ export default class Rankings extends React.Component {
 							</div>
 						</div>
 						<div className="option" onClick={() => {
-							this.props.change_ranking('2', this.props.fid, this.props.uid)
+							this.props.update_remote_ranking('2', this.props.fid, this.props.uid)
 						}}>
 							<div className="c_symbol">
 								<div className="symbol">
@@ -83,7 +83,7 @@ export default class Rankings extends React.Component {
 							</div>
 						</div>
 						<div className="option" onClick={() => {
-							this.props.change_ranking('1', this.props.fid, this.props.uid)
+							this.props.update_remote_ranking('1', this.props.fid, this.props.uid)
 						}}>
 							<div className="c_symbol">
 								<div className="symbol">

@@ -31,7 +31,7 @@ export default class Dogs extends React.Component {
 		);
 	}
 	
-	change_ranking (to_change) {
+	update_remote_ranking(to_change) {
 		if (to_change === 'dogs') {
 			this.setState({
 				dogs: 'great'

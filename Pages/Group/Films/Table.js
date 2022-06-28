@@ -46,7 +46,8 @@ export default class GroupFilmsTable extends React.Component {
 									film={film} 
 									fid={fid}
 									key={key_name}
-									change_ranking={this.change_ranking}
+									update_local_ranking={this.update_local_ranking}
+									update_remote_ranking={this.update_remote_ranking}
 								/>
 								
 							)
@@ -57,8 +58,21 @@ export default class GroupFilmsTable extends React.Component {
 		);
 	}
 	
-	change_ranking (ranking, film, user) {
+	update_remote_ranking(ranking, fid, uid) {
 		
+		let url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+fid+'&user='+uid+'&ranking='+ranking
+		lo(url)
+		let was_updated = getb.basic_ec(url)
+		if (was_updated) {
+			this.update_local_ranking(ranking, fid, uid)
+		} else {
+			alert ('remote ranking update failed')
+		}
+		
+	}
+	
+	
+	update_local_ranking(ranking, fid, uid) {
 		// this.setState({
 		// 	films: update(
 		// 		this.state.films, {[film]: {rankings: {[user]: {ranking: {$set: ranking}}}}}
@@ -69,12 +83,9 @@ export default class GroupFilmsTable extends React.Component {
 				this.state.films, {[1]: {rankings: {[1]: {ranking: {$set: ranking}}}}}
 			)
 		});
-		getb.basic(
-			'https://filmpicker.philosofiles.com/sync/?action=update_ranking&user='+user+'&film='+film+'&ranking='+ranking
-		);
-		// TODO: send FBase message
-		
+
 	}
+	
 	
 	constructor(props) {
 		
@@ -98,13 +109,14 @@ export default class GroupFilmsTable extends React.Component {
 		)
 		
 		// Bind this in all methods
-		this.change_ranking = this.change_ranking.bind(this)
+		this.update_remote_ranking = this.update_remote_ranking.bind(this)
+		this.update_local_ranking = this.update_local_ranking.bind(this)
 		
 	}
 	
 	componentDidMount() {
 		bus.on("changed_ranking", (change) =>
-			this.change_ranking(change.ranking, change.film, change.user)
+			this.update_remote_ranking(change.ranking, change.film, change.user)
 		);
 	}
 	

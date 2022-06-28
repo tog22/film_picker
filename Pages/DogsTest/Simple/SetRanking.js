@@ -6,7 +6,7 @@ export default class SetRanking extends React.Component {
 		return (
 			<p>
 				<button onClick={() => {
-					this.props.change_ranking(this.props.to_change)
+					this.props.update_remote_ranking(this.props.to_change)
 				}}>
 					Praise {this.props.to_change}
 				</button>
