@@ -16,7 +16,25 @@ let class_to_make_dummy_server = {
             type:       'movie',
             summary:    'A surreal, virtually plotless series of dreams centered around six middle-class people and their consistently interrupted attempts to have a meal together.',
             genre:      'Surreal Comedy',
-            director:   'Luis Buñuel'
+            director:   'Luis Buñuel',
+            rankings:   {
+              1:  {
+                uid:      1,
+                ranking:  3
+              },
+              2:  {
+                uid:      2,
+                ranking:  4
+              },
+              3:  {
+                uid:      3,
+                ranking:  2
+              },
+              4:  {
+                uid:      4,
+                ranking:  2
+              }
+            }
         }
     },
 

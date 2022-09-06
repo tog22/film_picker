@@ -6,31 +6,60 @@
         <td class="details cell text">
             <h3 class="title" v-html="film.title">
             </h3>
-            <div className="metadata">
+            <div class="metadata">
                 <div v-html="film.genre">
                 </div>
                 <div v-html="film.year+', '+film.director">
                 </div>
             </div>
         </td>
+        <Ranking
+          v-for="(ranking, uid) in film.rankings"
+            :ranking="ranking['ranking']"
+            :uid="uid"
+            :fid="film.fid"
+            :update_ranking="update_ranking"
+            :key="'f'+film.fid+'u'+uid"
+        />
+    </tr>
+    <tr class="summary_row">
+        <td class="summary cell text" colSpan="5">
+            <div class="summary_text"
+                v-html="film.summary">
+            </div>
+
+            <div style="margin: 1em 0">
+                Tom's ranking:&nbsp;
+                <span
+                    v-html="film['rankings'][1]['ranking']"
+                >
+                </span>
+            </div>
+      </td>
     </tr>
 </template>
 
 <script>
+import Ranking from '../../pages/Films/Ranking'
+
+
 export default {
 
     name:           'Film',
 
     props: [
         'film',
-        'fid'
+        'fid',
+        'update_ranking'
     ],
 
-    components:     {
+    components: {
+      Ranking
     },
 
-    created() {
-        console.log(this.film)
+    data() {
+      return {
+      }
     }
 }
 

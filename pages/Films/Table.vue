@@ -25,6 +25,7 @@
                     :film="film"
                     :fid="fid"
                     :key="'f'+fid"
+                    :update_ranking="update_ranking"
             />
         </tbody>
 
@@ -36,6 +37,8 @@
 <script>
 import Film from '../../pages/Films/Film'
 import dummy_server from '../../Dummy_Server/Data'
+import getb from '../../Libraries/synchronous_requests'
+
 
 /*
  <Film
@@ -50,9 +53,26 @@ export default {
 
 	name:   		'Group_Films_Table',
 
-	components: 	{
+	components: {
         Film
 	},
+
+    methods: {
+        update_ranking(ranking, fid, uid) {
+
+            let url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+fid+'&user='+uid+'&ranking='+ranking
+            lo(url)
+            let was_updated = getb.basic_ec(url)
+            if (was_updated) {
+                // Update local ranking
+                this.films[fid].rankings[uid].ranking = ranking
+                lo(this.films)
+            } else {
+                alert ('remote ranking update failed')
+            }
+
+        }
+    },
 
 	data() {
         return {
@@ -62,5 +82,10 @@ export default {
 	}
 
 }
+
+let lo = function (to_log) {
+    console.log(to_log)
+}
+
 
 </script>

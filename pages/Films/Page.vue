@@ -6,7 +6,7 @@
 
         <Group_Films_Table />
 
-        <div className="button_row center">
+        <div className="button_row">
           <q-btn
               label="Add Film"
               color="primary"
@@ -35,7 +35,6 @@ export default {
     },
     data() {
       let group = groups[this.$route.params.id]
-      lo(group)
       return {
         group: group
       }

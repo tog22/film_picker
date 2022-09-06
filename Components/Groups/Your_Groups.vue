@@ -33,14 +33,15 @@ let groups = dummy_server.groups
 
 
 export default {
-	name:'Your_Groups',
-    data() {
 
-        lo(groups)
+	name:'Your_Groups',
+
+    data() {
         return {
             groups:     groups
         }
     }
+
 }
 
 
