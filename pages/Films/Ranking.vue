@@ -67,28 +67,28 @@ export default {
         'update_ranking'
     ],
 
-    updated() {
-        lo('updated ranking compo')
-        lo(this)
-    },
-
     computed: {
 
         ranking_image: function() {
 
-            let ranking_image = 'default'
+            let ranking_image = '➕'
+            lo(this.ranking)
 
             switch(this.ranking) {
                 case 4:
+                case "4":
                     ranking_image = '👍'
                     break
                 case 3:
+                case "3":
                     ranking_image = '👌'
                     break
                 case 2:
+                case "2":
                     ranking_image = '🤷‍♂️'
                     break
                 case 1:
+                case "1":
                     ranking_image = '👎'
                     break
                 default:
@@ -98,10 +98,6 @@ export default {
             return ranking_image
 
         }
-
-    },
-
-    data() {
 
     }
 

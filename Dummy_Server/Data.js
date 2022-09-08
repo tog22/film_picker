@@ -39,10 +39,22 @@ let class_to_make_dummy_server = {
     },
 
     users: {
-      1:  'Tom',
-      2:  'June',
-      3:  'Wendy',
-      4:  'Zarifa'
+          1:  {
+              uid:  1,
+              name: 'Tom'
+          },
+        2:  {
+            uid:  2,
+            name: 'June'
+        },
+          3:  {
+              uid:  3,
+              name: 'Tom'
+          },
+            4:  {
+                uid:  4,
+                name: 'Zarifa'
+            }
     }
 
 /*
