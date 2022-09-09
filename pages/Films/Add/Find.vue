@@ -8,23 +8,12 @@
 				class="full_width_form q-gutter-y-md"
 		>
 			<q-input
-					label="Enter search here"
+					label="Title"
 					v-model="search_term"
 					outlined
+					:rules="[val => !!val || 'Enter a title']"
 			/>
-			<div>
-					<q-radio
-							label="Title"
-							v-model="search_type"
-							val="title"
-					/>
-					<q-radio
-							label="IMDB ID"
-							v-model="search_type"
-							val="imdb_id"
-					/>
-			</div>
-			<div className="button_row tight_top">
+			<div className="no_top">
 				<q-btn
 						type="submit"
 						label="Search"
@@ -50,9 +39,7 @@ export default {
 	methods: {
 		on_submit() {
 
-			let search_type = ((this.search_type === 'title') ? 's=' : 'i=')
-			let query_url = 'http://www.omdbapi.com/?apikey=67a0cf67&'+search_type+this.search_term
-			lo(query_url)
+			let query_url = 'http://www.omdbapi.com/?apikey=67a0cf67&s='+this.search_term
 
 			let fn = {
 
@@ -71,6 +58,7 @@ export default {
                         return
 					}
 					this.store.state.sections.add_film.search_results = response.Search
+					this.store.state.sections.add_film.search_count = response.totalResults
 					this.$router.push('/search_results')
 				},
 

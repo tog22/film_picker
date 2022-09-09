@@ -20,9 +20,6 @@ export default {
 	props: [
 		'film'
 	],
-	mounted() {
-		lo(this)
-	}
 }
 
 

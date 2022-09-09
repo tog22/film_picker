@@ -1,5 +1,5 @@
 <template>
-	<q-page>
+	<q-page class="q-gutter-lg">
 		<h1>
 			Select Search Result
 		</h1>
@@ -10,6 +10,16 @@
                 :key="'f'+fid"
 			/>
 		</div>
+		<q-banner 
+			v-if="unshown_results"
+			class="bg-primary text-white"
+		>
+			{{unshown_results}} unshown results. If you don't see what you're looking for, try a more specific search, or find the IMDB ID.
+			<template v-slot:action>
+				<q-btn flat color="white" label="Search again" to="/add" />
+				<q-btn flat color="white" label="Find ID" to="/imdb_id" />
+			</template>
+		</q-banner>
 	</q-page>
 </template>
 
@@ -26,12 +36,22 @@ export default {
 	methods: {
 	},
 	data() {
+		
 		const store = inject("store")
+		
 		let results = store.state.sections.add_film.search_results
-		lo(results)
+
+		let unshown_results = 0
+		let search_count = store.state.sections.add_film.search_count
+		if (search_count > 10) {
+			unshown_results = search_count - 10
+		}
+		lo(unshown_results)
+
 		return {
-			results:		results,
-			store:  		store
+			results:			results,
+			unshown_results: 	unshown_results,
+			store:  			store
 		}
 	}
 }
