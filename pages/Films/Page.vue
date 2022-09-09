@@ -11,7 +11,7 @@
               label="Add Film"
               color="primary"
               size="md"
-              to="/add"
+              href="/#/add"
           />
         </div>
 
