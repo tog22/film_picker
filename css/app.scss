@@ -44,6 +44,10 @@ body {
   justify-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /***********************************/
 /* !FILMPICKER STYLES
@@ -117,6 +121,10 @@ h3.subheading,
 
 .button_row {
   margin: 2em 0;
+}
+
+.button_row.tight_top {
+    margin-top: 1.5em;
 }
 
 a.button {
@@ -221,6 +229,10 @@ a.button:hover {
   font-size: 1em;
   border-radius: 6px;
   margin-bottom: 2em;
+}
+
+.q-form {
+    margin-top: 1.5em;
 }
 
 

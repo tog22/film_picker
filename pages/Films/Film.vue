@@ -27,14 +27,6 @@
             <div class="summary_text"
                 v-html="film.summary">
             </div>
-
-            <div style="margin: 1em 0">
-                Tom's ranking:&nbsp;
-                <span
-                    v-html="film['rankings'][1]['ranking']"
-                >
-                </span>
-            </div>
       </td>
     </tr>
 </template>
