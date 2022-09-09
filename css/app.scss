@@ -65,8 +65,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+$page_margin: 	20px;
+
 .page_margin {
-	margin: 20px;
+	margin: 	$page_margin;
 }
 
 code {
@@ -237,6 +239,14 @@ a.button:hover {
 
 .q-form {
 	margin-top: 1.5em;
+}
+
+.q-toolbar {
+	padding: 0.2em $page_margin;
+}
+
+.q-toolbar__title {
+	font-weight: bold;
 }
 
 
