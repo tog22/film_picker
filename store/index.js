@@ -4,6 +4,7 @@ const STATE_NAME = "film_picker_datastore";
 
 
 const defaultState = {
+    test_initialization:  'initialized',
     sections: {
         add_film:   {
           search_results: {}

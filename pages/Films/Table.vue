@@ -137,7 +137,7 @@ export default {
             success:    function(data, status, request) {
                 load.users(data, status, request)
             },
-            error:      function(request, status, error) {
+            error:      function(request, status, error){
                 load.users_error(request, status, error)
             }
         })
