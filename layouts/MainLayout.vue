@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { inject, defineComponent, ref } from 'vue'
 
 const linksList = [
 	{
@@ -55,15 +55,21 @@ export default defineComponent({
 	},
 
 	setup () {
-	const leftDrawerOpen = ref(false)
+		const leftDrawerOpen = ref(false)
+		const store = inject("store")
 
-	return {
-		essentialLinks: linksList,
-		leftDrawerOpen,
-		toggleLeftDrawer () {
-		leftDrawerOpen.value = !leftDrawerOpen.value
+		return {
+			essentialLinks: linksList,
+			leftDrawerOpen,
+			toggleLeftDrawer () {
+				leftDrawerOpen.value = !leftDrawerOpen.value
+			},
+			store: 			store
 		}
-	}
+	},
+
+	mounted() {
+		console.log(this.store)
 	}
 })
 </script>

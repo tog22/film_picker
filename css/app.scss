@@ -1,6 +1,7 @@
 // app global css in SCSS form
 
 @import 'Chrome/chrome.scss';
+@import 'Films.scss';
 
 /***********************************/
 /* !RESET QUASAR STYLES TO DEFAULT
@@ -289,48 +290,7 @@ a.button:hover {
 }
 
 
-/***********************************/
-/* !Films (mini view)
-/***********************************/
 
-.film_list_mini .mini_film:nth-child(odd) {
-	background-color: #eee;
-}
-
-.mini_film {
-	
-	border:		1px solid #eee;
-	margin-top:	-1px;
-	padding:	0.66em;
-	display:	flex;
-
-	.poster {
-
-		margin-right: 1em;
-
-		img {
-			width: 		100px;
-			display:	block;
-		}
-
-	}
-
-	.info {
-
-		.title {
-			font-weight: 	bold;
-			font-size: 		2em;
-		}
-
-		.year {
-			font-style: 	italic;
-			font-size: 		1.2em;
-		}
-
-	}
-
-
-}
 
 
 /***********************************/

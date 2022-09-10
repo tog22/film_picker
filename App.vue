@@ -32,6 +32,6 @@ export default defineComponent({
     provide('store',store)
   },
   mounted(){
-   },
+  },
 })
 </script>

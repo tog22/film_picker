@@ -1,0 +1,49 @@
+/***********************************/
+/* !Mini view
+/***********************************/
+
+.mini_film {
+	
+	border:		1px solid #eee;
+	margin-top:	-1px;
+	padding:	0.66em;
+	display:	flex;
+	cursor: pointer;
+
+	&:nth-child(odd) {
+		background-color: #eee;
+
+	}
+
+	&:hover,
+	&:nth-child(odd):hover {
+		background-color: #ddd;
+	}
+
+	.poster {
+
+		margin-right: 1em;
+
+		img {
+			width: 		100px;
+			display:	block;
+		}
+
+	}
+
+	.info {
+
+		.title {
+			font-weight: 	bold;
+			font-size: 		2em;
+		}
+
+		.year {
+			font-style: 	italic;
+			font-size: 		1.2em;
+		}
+
+	}
+
+
+}
