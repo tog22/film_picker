@@ -10,6 +10,7 @@ const routes = [
       { path: '/group/:id', component: () => import('pages/Films/Page.vue') },
       { path: '/add', component: () => import('pages/Films/Add/Find.vue') },
       { path: '/search_results', component: () => import('pages/Films/Add/Search_Results.vue') },
+      { path: '/help/imdb_id', component: () => import('pages/Help/IMDB_ID.vue') },
       { path: '/signup', component: () => import('pages/Start_Page.vue') },
       { path: '/login', component: () => import('pages/Start_Page.vue') },
       { path: '/film/add', component: () => import('pages/Start_Page.vue') },

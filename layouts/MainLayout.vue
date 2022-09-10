@@ -16,9 +16,9 @@
 		<div class="page_margin">
 			<!--
 			<h1 id="site_title">
-						<a href="/">
-						🎞️
-						</a>
+				<a href="/">
+				🎞️
+				</a>
 			</h1>
 			<div class="temp_nav">
 					<a href="/#/group">

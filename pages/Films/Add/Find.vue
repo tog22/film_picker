@@ -82,6 +82,8 @@ export default {
 	},
 	data() {
 		const store = inject("store")
+		// ↓ Reset
+		store.state.sections.add_film = {}
 		return {
 			search_type:		'title',
 			search_term:		'',
