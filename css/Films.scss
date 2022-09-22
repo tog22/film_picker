@@ -8,16 +8,19 @@
 	margin-top:	-1px;
 	padding:	0.66em;
 	display:	flex;
-	cursor: pointer;
 
 	&:nth-child(odd) {
 		background-color: #eee;
 
 	}
 
-	&:hover,
-	&:nth-child(odd):hover {
+	&.click_to_add:hover,
+	&.click_to_add:nth-child(odd):hover {
 		background-color: #ddd;
+	}
+
+	&.click_to_add {
+		cursor: pointer;
 	}
 
 	.poster {

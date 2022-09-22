@@ -6,7 +6,7 @@
 
         <Group_Films_Table />
 
-        <div className="button_row">
+        <div class="button_row">
           <q-btn
               label="Add Film"
               color="primary"

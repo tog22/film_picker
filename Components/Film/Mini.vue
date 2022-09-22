@@ -1,5 +1,5 @@
 <template>
-	<div class="mini_film" @click="on_click">
+	<div class="mini_film" :class="click_to_add" @click="on_click">
 		<div class="poster">
 			<img :src="film.Poster">
 		</div>
@@ -16,24 +16,32 @@
 
 <script>
 import {inject} from 'vue'
+import $ from 'jquery'
+
 export default {
 	name:       'Film_Mini',
 	props: [
 		'film',
-		'fid'
+		'imdb_ib',
+		'click_to_add'
 	],
 	methods: {
 		on_click() {
 			
-			this.store.state.sections.add_film.selected = this.fid
-			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=add_film&imdb_id='+this.fid+'&uid='+this.store.state.user.uid;
+			if (!this.click_to_add) {
+				return
+			}
+
+			this.store.state.sections.add_film.selected = this.imdb_ib
+			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=add_film&imdb_id='+this.imdb_ib+'&uid='+this.store.state.user.uid;
+			lo(query_url)
 
 			let fns = {
 
 				on_success(data, status, request) {
 					let response = JSON.parse(data)
 					if (response.result === 'success') {
-						this.$router.push('/film/new/'+this.fid)
+						this.$router.push('/film/new/'+response.body.id)
 					} else {
 						alert('error 5135')
 					}
@@ -49,10 +57,10 @@ export default {
 			$.ajax({
 				url:  		query_url,
 				success:    function(data, status, request) {
-					on_success(data, status, request)
+					fns.on_success(data, status, request)
 				}, 
 				error: 		function(request, status, error) {
-					on_error(request, status, error)
+					fns.on_error(request, status, error)
 				}
 			})
 

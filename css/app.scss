@@ -1,7 +1,10 @@
 // app global css in SCSS form
 
+@import 'Variables.scss';
+
 @import 'Chrome/chrome.scss';
 @import 'Films.scss';
+
 
 /***********************************/
 /* !RESET QUASAR STYLES TO DEFAULT
@@ -358,3 +361,53 @@ td.rcell {
 
 	}
 }
+
+
+
+
+/***********************************/
+/* !Rankings after adding
+/***********************************/
+
+#response_list_with_keys {
+	
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 1px;
+
+	@media screen and ( max-width: $phone ) {
+		.response {
+			width: 50%;
+		}
+	}
+
+	@media screen and ( min-width: $gtphone ) {
+		.response {
+			width: 25%;
+		}
+	}
+
+	.response {
+		border: 1px solid $border_light;
+		margin-top: -1px;
+		margin-left: -1px;
+		text-align: center;
+		padding: 2px 1em 1em;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $hover_col;
+		}
+
+		.icon {
+			font-size: 3em;
+		}
+
+		.key {
+			line-height: 1em;
+			font-weight: bold;
+		}
+	}
+
+}
+

@@ -3,7 +3,7 @@
 		<q-toolbar
 			class="bg-primary text-white"
 		>
-			<q-toolbar-title  >
+			<q-toolbar-title @click="go_to_home">
 				<div id="logo">
 					🎞️
 				</div>
@@ -52,6 +52,12 @@ export default defineComponent({
 	name: 'MainLayout',
 
 	components: {
+	},
+
+	methods: {
+		go_to_home() {
+			this.$router.push('/')
+		}
 	},
 
 	setup () {

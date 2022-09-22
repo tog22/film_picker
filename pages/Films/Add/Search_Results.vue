@@ -7,7 +7,8 @@
 			<Film_Mini
 				v-for="(film,fid) in results"
 				:film="film"
-				:fid="fid"
+				:imdb_ib="film.imdbID"
+				click_to_add="click_to_add"
                 :key="'f'+fid"
 			/>
 		</div>
