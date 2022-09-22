@@ -3,7 +3,7 @@
 
       <q-tabs  content-class='q-pr-md text-h2'
       :switch-indicator="$q.platform.is.mobile ? true : false"
-      :active-color="store.state.secondary" >
+      :active-color="store..secondary" >
             <q-route-tab  :no-caps="true" style="width: 73px; "
             :to="link"  :icon="icon" round :label="title"/>
 

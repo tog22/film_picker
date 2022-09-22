@@ -93,7 +93,7 @@ export default {
           "Test",
           require("assets/button.png")
         );
-        setTimeout(()=>{this.store.state.step ++}, 500);
+        setTimeout(()=>{this.store..step ++}, 500);
       }
     },
   },
@@ -115,7 +115,7 @@ export default {
         this.$q.notify({
           message: ' Countdown time finished. ',
           position: 'top',
-          color: this.store.state.secondary,
+          color: this.store..secondary,
           actions: [
             { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
           ]

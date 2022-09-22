@@ -1,10 +1,10 @@
 <template>
-    <div :class="'q-pa-lg text-white bg-'+store.state.primary">
-    <q-card flat :class="' fit bg-'+store.state.primary"   >
+    <div :class="'q-pa-lg text-white bg-'+store..primary">
+    <q-card flat :class="' fit bg-'+store..primary"   >
       
-      <q-input v-if="store.state.todos.length < store.state.todoLimit" rounded standout bottom-slots
+      <q-input v-if="store..todos.length < store..todoLimit" rounded standout bottom-slots
        @keyup.enter ="addNew"
-                 v-model="store.state.text"
+                 v-model="store..text"
                 label="Add new task" 
                 style="width:100% ;"
                 class="q-pt-sm top ">
@@ -16,12 +16,12 @@
                                 class="cursor-pointer" />
             </template>
         </q-input>
-        <div v-if="store.state.todos.length != 0" class="flex justify-between">  
+        <div v-if="store..todos.length != 0" class="flex justify-between">  
 
-            <q-btn :color="store.state.secondary" 
+            <q-btn :color="store..secondary" 
             label="Cancel" 
             flat
-            @click="store.state.addNewTodo = false" />
+            @click="store..addNewTodo = false" />
             
           </div>
 
@@ -44,9 +44,9 @@ export default {
         return {
             store,
             addNew: function(){
-                store.state.currentTodo = store.state.text
-                store.methods.addTask(store.state.text)
-                store.state.addNewTodo = false
+                store..currentTodo = store..text
+                store.methods.addTask(store..text)
+                store..addNewTodo = false
             },
         }
     }   

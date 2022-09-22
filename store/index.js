@@ -9,6 +9,9 @@ const default_state = {
 			uid: 1,
 			name: 'Tom'
 		},
+		current: {
+			group: 1
+		},
 		sections: {
 				add_film:   {
 					search_results: {}
@@ -26,23 +29,13 @@ const getdefault_state = () => {
 	}
 };
 
-const state = reactive(getdefault_state());
+const store = reactive(getdefault_state());
 
-console.log(state)
-
-const methods = {
-	// addTask(todo){
-	//   state.text = ''
-	// }
-
-}
-
-const getters = {}
 
 watch(
-	() => state,
+	() => store,
 	() => {
-	localStorage.setItem(STATE_NAME, JSON.stringify(state));
+	localStorage.setItem(STATE_NAME, JSON.stringify(store));
 	},
 	{ deep: true }
 );
@@ -72,9 +65,24 @@ function lo(to_log) {
 	console.log(to_log)
 }
 
+export default store
+
+/*********************
+**  ALTERNATIVELY:  **
+
+const methods = {
+	// addTask(todo){
+	//   store.text = ''
+	// }
+
+}
+
+const getters = {}
 
 export default {
-	state,
-	methods,
-	getters,
+	state: 		store,
+	methods: 	methods,
+	getters: 	getter,
 }
+
+*********************/

@@ -1,7 +1,7 @@
 <template>
     <div class="q-pa-md" style="max-width: %100;">
     <div class="q-gutter-md">
-      <q-select filled v-model="store.state.currentTodo" :options="store.state.todos" label="focus on just one task" />
+      <q-select filled v-model="store..currentTodo" :options="store..todos" label="focus on just one task" />
     </div>
   </div>
 </template>
