@@ -39,12 +39,47 @@
 				</div>
 			</div>
 		</section>
+		<section class="no_header">
+			<div class="buttons_vertical_centered lgt">
+				<div class="s_button">
+					<q-btn
+						label="Add Another Film"
+						color="primary"
+						size="lg"
+						to="/add"
+					/>
+				</div>
+				<div class="s_button">
+					<q-btn
+						v-if="store.state.current.group"
+						label="See Your Group"
+						color="primary"
+						size="lg"
+						:to="'\/group/'+store.state.current.group"
+						
+					/>
+					<!-- :to="'\/group'+store.state.current.group" -->
+					<q-btn
+						v-else
+						label="See Your Groups"
+						color="primary"
+						size="lg"
+						to="/groups"
+					/>
+				</div>
+			</div>
+		</section>
 	</q-page>
 </template>
 
 <script>
 import $ from 'jquery'
 import { inject } from "vue"
+
+let saved = `
+
+				
+`
 
 export default {
 	name: 			'After_Adding_Page',
@@ -54,7 +89,7 @@ export default {
 		
 		set_ranking(ranking) {
 
-			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+this.$route.params.id+'&user='+this.store.user.uid+'&ranking='+ranking
+			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+this.$route.params.id+'&user='+this.store.state.user.uid+'&ranking='+ranking
 
 			let sync = {
 
@@ -89,42 +124,7 @@ export default {
 	data() {
 		let store = inject("store")
 
-		// Load film data
-
-		let film
-		let fid = store.sections.add_film.selected
-		let load_film_url = 'https://filmpicker.philosofiles.com/sync/?action=get_film&fid='+fid
-
-		let load = {
-
-			film(data, status, request) {
-				let response = JSON.parse(data)
-				if (response.result === 'success') {
-					this.film = response.body
-					console.log(this.film)
-				}
-			},
-
-			film_error(request, status, error) {
-				alert('load film error')
-			},
-
-		}
-
-		load.film = load.film.bind(this)
-
-		$.ajax({
-			url:        load_film_url,
-			success:    function(data, status, request) {
-				fns.on_success(data, status, request)
-			},
-			error:      function(request, status, error){
-				fns.on_error(request, status, error)
-			}
-		})
-
 		return {
-			film: 				null,
 			store:				store
 
 		}

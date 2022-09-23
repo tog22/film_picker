@@ -65,14 +65,15 @@ function lo(to_log) {
 	console.log(to_log)
 }
 
-export default store
+// export default store
 
 /*********************
 **  ALTERNATIVELY:  **
 
+*********************/
 const methods = {
 	// addTask(todo){
-	//   store.text = ''
+	//   store.state.text = ''
 	// }
 
 }
@@ -82,7 +83,5 @@ const getters = {}
 export default {
 	state: 		store,
 	methods: 	methods,
-	getters: 	getter,
+	getters: 	getters,
 }
-
-*********************/

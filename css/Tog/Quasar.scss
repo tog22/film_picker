@@ -1,0 +1,36 @@
+.buttons_vertical,
+.buttons_vertical_centered {
+
+	&.lgt {
+
+		.s_button {
+			margin-bottom:  2em;
+		}
+
+	}
+
+	&.mdt {
+
+		.s_button {
+			margin-bottom:  1.5em;
+		}
+
+	}
+
+}
+
+.buttons_vertical_centered {
+	text-align: center;
+}
+
+.q-page {
+
+	section {
+
+		&.no_header:nth-child(n+2) {
+			margin-top: 	3em;
+		}
+
+	}
+
+}
