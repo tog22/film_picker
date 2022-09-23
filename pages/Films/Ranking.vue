@@ -72,7 +72,6 @@ export default {
         ranking_image: function() {
 
             let ranking_image = '➕'
-            lo(this.ranking)
 
             switch(this.ranking) {
                 case 4:

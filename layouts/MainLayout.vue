@@ -73,9 +73,5 @@ export default defineComponent({
 			store: 		store_parent.state
 		}
 	},
-
-	mounted() {
-		console.log(this.store)
-	}
 })
 </script>

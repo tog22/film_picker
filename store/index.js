@@ -53,8 +53,6 @@ function update_recursively(to_update, to_match) {
 			}
 		} else {
 			if (!(key in to_update)) {
-				lo('to_match=')
-				lo(to_match)
 				to_update[key] = to_match[key]
 				let bpt = 1
 			}
