@@ -303,6 +303,9 @@ a.button:hover {
 /***********************************/
 
 td.rcell {
+	
+
+
 	.ranking_container {
 		display: inline-block;
 	}
@@ -326,6 +329,7 @@ td.rcell {
 	}
 
 	.c_symbol {
+		
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
@@ -338,7 +342,12 @@ td.rcell {
 		height: 1.75em;
 
 		background: white;
-		border: 2px solid black;
+		border: 2px solid transparent;
+
+	}
+
+	.is_user .c_symbol {
+		border-color: black;
 	}
 
 	.symbol {
@@ -363,7 +372,6 @@ td.rcell {
 
 	}
 }
-
 
 
 

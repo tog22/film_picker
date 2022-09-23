@@ -81,14 +81,13 @@ export default {
 		},
 	},
 	data() {
-		const store_parent = inject("store")
-		const store = store_parent.state
+		const store = inject("store").state
 		// ↓ Reset
 		store.sections.add_film = {}
 		return {
 			search_type:		'title',
 			search_term:		'',
-			store: 		store_parent.state
+			store: 				store
 		}
 	}
 }
