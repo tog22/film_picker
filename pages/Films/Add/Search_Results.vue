@@ -39,13 +39,14 @@ export default {
 	},
 	data() {
 		
-		const store = inject("store")
+		const store_parent = inject("store")
+		const store = store_parent.state
 		
-		let results = store.state.sections.add_film.search_results
+		let results = store.sections.add_film.search_results
 		lo(results)
 
 		let unshown_results = 0
-		let search_count = store.state.sections.add_film.search_count
+		let search_count = store.sections.add_film.search_count
 		if (search_count > 10) {
 			unshown_results = search_count - 10
 		}
@@ -53,7 +54,7 @@ export default {
 		return {
 			results:			results,
 			unshown_results: 	unshown_results,
-			store:  			store
+			store: 				store
 		}
 	}
 }

@@ -51,14 +51,14 @@
 				</div>
 				<div class="s_button">
 					<q-btn
-						v-if="store.state.current.group"
+						v-if="store.current.group"
 						label="See Your Group"
 						color="primary"
 						size="lg"
-						:to="'\/group/'+store.state.current.group"
+						:to="'\/group/'+store.current.group"
 						
 					/>
-					<!-- :to="'\/group'+store.state.current.group" -->
+					<!-- :to="'\/group'+store.current.group" -->
 					<q-btn
 						v-else
 						label="See Your Groups"
@@ -89,7 +89,7 @@ export default {
 		
 		set_ranking(ranking) {
 
-			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+this.$route.params.id+'&user='+this.store.state.user.uid+'&ranking='+ranking
+			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=update_ranking&film='+this.$route.params.id+'&user='+this.store.user.uid+'&ranking='+ranking
 
 			let sync = {
 
@@ -122,10 +122,10 @@ export default {
 
 	},
 	data() {
-		let store = inject("store")
+		let store_parent = inject("store")
 
 		return {
-			store:				store
+			store: 			store_parent.state
 
 		}
 	}

@@ -2,6 +2,7 @@ import { reactive, watch } from "vue";
 
 const STATE_NAME = "film_picker_datastore";
 
+var store_parent // What'll get exported
 
 const default_state = {
 		test_initialization:  'initialized',
@@ -65,23 +66,31 @@ function lo(to_log) {
 	console.log(to_log)
 }
 
-// export default store
-
 /*********************
-**  ALTERNATIVELY:  **
+**   THE EXPORT:    */
 
-*********************/
 const methods = {
 	// addTask(todo){
-	//   store.state.text = ''
+	//   store.state.text = ''  // ← This should start store[dot]state[dot]text
 	// }
 
 }
 
 const getters = {}
 
-export default {
+store_parent = {
 	state: 		store,
 	methods: 	methods,
 	getters: 	getters,
 }
+
+export default store_parent
+
+
+/*********************
+**  ALTERNATIVELY:  **
+
+// This doesn't work:
+export default store
+
+*********************/

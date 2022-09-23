@@ -57,8 +57,8 @@ export default {
     					}
                         return
 					}
-					this.store.state.sections.add_film.search_results = response.Search
-					this.store.state.sections.add_film.search_count = response.totalResults
+					this.store.sections.add_film.search_results = response.Search
+					this.store.sections.add_film.search_count = response.totalResults
 					this.$router.push('/search_results')
 				},
 
@@ -81,13 +81,14 @@ export default {
 		},
 	},
 	data() {
-		const store = inject("store")
+		const store_parent = inject("store")
+		const store = store_parent.state
 		// ↓ Reset
-		store.state.sections.add_film = {}
+		store.sections.add_film = {}
 		return {
 			search_type:		'title',
 			search_term:		'',
-			store:					store
+			store: 		store_parent.state
 		}
 	}
 }

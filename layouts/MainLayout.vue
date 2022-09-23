@@ -62,7 +62,7 @@ export default defineComponent({
 
 	setup () {
 		const leftDrawerOpen = ref(false)
-		const store = inject("store")
+		const store_parent = inject("store")
 
 		return {
 			essentialLinks: linksList,
@@ -70,7 +70,7 @@ export default defineComponent({
 			toggleLeftDrawer () {
 				leftDrawerOpen.value = !leftDrawerOpen.value
 			},
-			store: 			store
+			store: 		store_parent.state
 		}
 	},
 

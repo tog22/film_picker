@@ -32,8 +32,8 @@ export default {
 				return
 			}
 
-			this.store.state.sections.add_film.selected = this.imdb_ib
-			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=add_film&imdb_id='+this.imdb_ib+'&uid='+this.store.state.user.uid;
+			this.store.sections.add_film.selected = this.imdb_ib
+			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=add_film&imdb_id='+this.imdb_ib+'&uid='+this.store.user.uid;
 			lo(query_url)
 
 			let fns = {
@@ -67,9 +67,9 @@ export default {
 		}
 	},
 	data() {
-		const store = inject("store")
+		const store_parent = inject("store")
 		return {
-			store: 	store
+			store: 		store_parent.state
 		}
 	}
 }
