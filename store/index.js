@@ -10,13 +10,19 @@ const default_state = {
 			uid: 1,
 			name: 'Tom'
 		},
+		friends: {
+			2: 	{
+				uid: 	2,
+				full_name: 	'June',
+			}
+		},
 		current: {
 			group: 1
 		},
 		sections: {
-				add_film:   {
-					search_results: {}
-				}
+			add_film:   {
+				search_results: {}
+			}
 		}
 }
 

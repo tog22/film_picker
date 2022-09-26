@@ -20,7 +20,7 @@
             label="Add new group"
             color="primary"
             size="sm"
-            href="/#/group/add"
+            to="/group/add"
         />
 	</div>
 </template>

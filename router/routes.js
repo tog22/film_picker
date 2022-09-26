@@ -8,6 +8,7 @@ const routes = [
       { path: '/home', component: () => import('pages/Start_Page.vue') },
       { path: '/group', component: () => import('pages/Group/List/Page.vue') },
       { path: '/group/:id', component: () => import('pages/Films/Page.vue') },
+      { path: '/group/add', component: () => import('pages/Group/Add/Page.vue') },
       { path: '/add', component: () => import('pages/Films/Add/Find.vue') },
       { path: '/search_results', component: () => import('pages/Films/Add/Search_Results.vue') },
       { path: '/film/new/:id', component: () => import('pages/Films/After_Adding/After_Adding.vue') },
