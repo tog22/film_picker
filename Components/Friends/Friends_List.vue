@@ -7,6 +7,7 @@
 			<Friend 
 				v-for="(friend, key) in friends"
 				:friend="friend"
+				:add_handler="add_to_group"
 				:key="key"
 			>
 			</Friend>
@@ -29,9 +30,12 @@ export default {
 		'to_add_to',
 		'is_new_club'
 	],
+	methods: {
+		
+	},
 	data() {
 		const store = inject("store").state
-		lo(this)
+		
 		return {
 			friends: 			store.friends,
 			store: 				store
