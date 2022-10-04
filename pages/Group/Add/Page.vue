@@ -96,9 +96,8 @@ export default {
 		store.sections.add_film = {}
 
 		// Create empty group
-		store.sections.group.displayed.members = [
-			store.user
-		]
+		let members = store.sections.group.displayed.members = {}
+		members[store.user.uid] = store.user
 
 		return {
 			search_type:		'title',

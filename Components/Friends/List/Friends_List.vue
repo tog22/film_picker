@@ -39,8 +39,7 @@ export default {
 				if (this.is_new_club) {
 					let friends = this.store.sections.group.displayed.members
 					let uid_to_add = friend.uid
-					friends[uid_to_add] =  friend
-					friends.push({friend})
+					friends[uid_to_add] = friend
 					lo(friends)
 				} else {
 					let group_id = this.to_add_to

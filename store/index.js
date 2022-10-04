@@ -28,7 +28,7 @@ const default_state = {
 			group: 	{
 				displayed: 		{
 					name:		'Error: no group selected',
-					members: 	[]
+					members: 	{}
 				}
 			}
 			

@@ -5,8 +5,7 @@
             :key="key"
 			
         >
-			<a @click="logmethod(member)">click</a>
-			👤 member.first_name
+			👤 {{member.first_name}}
 	</span>
     </div>
 </template>
@@ -23,9 +22,6 @@ export default {
 	],
 	methods: {
 
-		logmethod(to_log) {
-			lo(to_log)
-		}
 	},
 	data() {
 		const store = inject("store").state
