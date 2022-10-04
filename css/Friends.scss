@@ -1,0 +1,17 @@
+@import 'Variables.scss';
+
+.badge {
+    background-color: green;
+    border-radius: 4px;
+    padding: 0 5px;
+
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+
+}
+
+.friends_list .friend.added {
+    background-color: $striped_list_selected;
+}

@@ -7,13 +7,15 @@ var store_parent // What'll get exported
 const default_state = {
 		test_initialization:  'initialized',
 		user: {
-			uid: 1,
-			name: 'Tom'
+			uid: 			1,
+			first_name: 	'Tom',
+			full_name:		'Tom Ash'
 		},
 		friends: {
 			2: 	{
-				uid: 	2,
-				full_name: 	'June',
+				uid: 			2,
+				full_name: 		'June',
+				first_name: 	'June'
 			}
 		},
 		current: {
@@ -22,7 +24,14 @@ const default_state = {
 		sections: {
 			add_film:   {
 				search_results: {}
+			},
+			group: 	{
+				displayed: 		{
+					name:		'Error: no group selected',
+					members: 	[]
+				}
 			}
+			
 		}
 }
 

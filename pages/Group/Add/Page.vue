@@ -13,10 +13,11 @@
 				outlined
 				:rules="[val => !!val || 'Enter a name']"
 			/>
+			<Members_Mini_List />
 			<Friends_List 
 				heading="Add Existing Friend" 
-				:to_add_to="club_members"
 				is_new_club="true"
+				context="add_to_group"
 			/>
 			<div><!-- class="no_top"-->
 				<q-btn
@@ -34,12 +35,14 @@
 import $ from 'jquery'
 import { inject } from "vue"
 
-import Friends_List from '../../../Components/Friends/Friends_List'
+import Friends_List from '../../../Components/Friends/List/Friends_List'
+import Members_Mini_List from '../../../Components/Friends/Members_Mini_List/List'
 
 export default {
 	name: 			'Add_Film_Page',
 	components: {
-		Friends_List
+		Friends_List,
+		Members_Mini_List
 	},
 	methods: {
 		on_submit() {
@@ -86,13 +89,20 @@ export default {
 		},
 	},
 	data() {
+		
 		const store = inject("store").state
+
 		// ↓ Reset
 		store.sections.add_film = {}
+
+		// Create empty group
+		store.sections.group.displayed.members = [
+			store.user
+		]
+
 		return {
 			search_type:		'title',
 			club_name:			'',
-			club_members: 		[],
 			store: 				store
 		}
 	}

@@ -1,3 +1,5 @@
+@import 'Variables.scss';
+
 /***********************************/
 /* !Mini view
 /***********************************/
@@ -10,13 +12,13 @@
 	display:	flex;
 
 	&:nth-child(odd) {
-		background-color: #eee;
+		background-color: 	$striped_list_odd;
 
 	}
 
 	&.click_to_add:hover,
 	&.click_to_add:nth-child(odd):hover {
-		background-color: #ddd;
+		background-color: 	$striped_list_hover;
 	}
 
 	&.click_to_add {
