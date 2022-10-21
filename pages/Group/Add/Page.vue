@@ -22,7 +22,7 @@
 			<div><!-- class="no_top"-->
 				<q-btn
 					type="submit"
-					label="Search"
+					label="Add"
 					color="primary"
 					size="md"
 				/>
@@ -47,36 +47,51 @@ export default {
 	methods: {
 		on_submit() {
 
-			let query_url = 'http://www.omdbapi.com/?apikey=67a0cf67&s='+this.search_term
+			// Prepare API URL
 
-			let fn = {
+			/// Prepare members URL component
+			let members = this.store.sections.group.displayed.members
+			let _members_param = []
+			for (var uid_key in members) {
+				_members_param.push(uid_key)
+			}
+			let members_param = JSON.stringify(_members_param)
+
+			/// Create URL itself
+			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=create_group&name='+encodeURIComponent(this.club_name)+'&members='+members_param
+			lo(query_url)
+
+			// API functions
+			let api = {
 
 				on_success(data, status, request) {
-					let response = data
-					console.log(data)
-					if (response.Response === 'False') {
-						switch (response.Error) {
-							case 'Too many results.':
-								alert('Too many results. Try searching for a more specific title, or search on IMDB [LINK] and get the IMDB ID (e.g. tt0800369) from the URL')
-								break
-							default:
-								alert('Error: '+response.Error)
-								break
-    					}
-                        return
+					let response = JSON.parse(data)
+					if (response.result === 'success') {
+						this.$router.push('/group/'+response.body.gid)
+					} else {
+						alert('error 51335')
 					}
-					this.store.sections.add_film.search_results = response.Search
-					this.store.sections.add_film.search_count = response.totalResults
-					this.$router.push('/search_results')
 				},
 
 				on_error(request, status, error) {
-					alert('error 423612')
-				},
-
+					alert('error 73371')
+				}
 			}
 
-            fn.on_success = fn.on_success.bind(this)
+			api.on_success = api.on_success.bind(this)
+
+			// $.ajax({
+			// 	url:  		query_url,
+			// 	success:    function(data, status, request) {
+			// 		api.on_success(data, status, request)
+			// 	}, 
+			// 	error: 		function(request, status, error) {
+			// 		api.on_error(request, status, error)
+			// 	}
+			// })
+			// }
+
+            api.on_success = api.on_success.bind(this)
 			$.ajax({
 				url:		query_url,
                 success:    function(data, status, request) {

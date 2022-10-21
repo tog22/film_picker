@@ -3,7 +3,7 @@
         <span 
             v-for="(member, key) in members"
             :key="key"
-			
+			class="member"
         >
 			👤 {{member.first_name}}
 	</span>
@@ -39,3 +39,11 @@ let lo = function (to_log) {
 }
 
 </script>
+
+<style scoped>
+
+.member {
+	padding-right: 1em;
+}
+
+</style>

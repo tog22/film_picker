@@ -34,7 +34,6 @@ export default {
 
 			this.store.sections.add_film.selected = this.imdb_ib
 			let query_url = 'https://filmpicker.philosofiles.com/sync/?action=add_film&imdb_id='+this.imdb_ib+'&uid='+this.store.user.uid;
-			lo(query_url)
 
 			let fns = {
 
