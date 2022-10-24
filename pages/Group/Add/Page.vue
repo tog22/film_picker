@@ -79,26 +79,13 @@ export default {
 			}
 
 			api.on_success = api.on_success.bind(this)
-
-			// $.ajax({
-			// 	url:  		query_url,
-			// 	success:    function(data, status, request) {
-			// 		api.on_success(data, status, request)
-			// 	}, 
-			// 	error: 		function(request, status, error) {
-			// 		api.on_error(request, status, error)
-			// 	}
-			// })
-			// }
-
-            api.on_success = api.on_success.bind(this)
 			$.ajax({
 				url:		query_url,
                 success:    function(data, status, request) {
-                    fn.on_success(data, status, request)
+                    api.on_success(data, status, request)
                 },
                 error:      function(request, status, error){
-                    fn.on_error(request, status, error)
+                    api.on_error(request, status, error)
                 }
 			})
 		},
