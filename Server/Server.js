@@ -1,8 +1,9 @@
 import tog from '../Libraries/tog'
 import $ from 'jquery'
 
-let on = {
-	success:
+let server = {
+	
+	on_success:
 	function(
 		vue_data_prop,
 		handler,
@@ -13,31 +14,32 @@ let on = {
 	) {
 		let response = JSON.parse(data)
 		if (response.result === 'success') {
-			vue_component[vue_data_prop] = handler();// handler = tog.arrays.map_to_object(response.users, 'uid')
+			vue_component[vue_data_prop] = handler(response)
 			tog.vue.mark_loaded(vue_data_prop, vue_component)
 		}
 	},
 
-	error:
-	function(error_for, request, status, error) {
-		alert('⚠️ API error for '+error_for)
-	}
-    
-}
+	on_error:
+	function(vue_data_prop, request, status, error) {
+		alert('⚠️ API error for '+vue_data_prop)
+	},
 
-let api = {
+	get:
+	function(
+		vue_data_prop, 
+		url, 
+		vue_component, 
+		handler
+	) {
 
-	get_group_users:
-	function(gid, vue_component) {
+		let server = this
 		
-		let load_users_url = 'https://filmpicker.philosofiles.com/sync/?action=get_group_users&group='+gid
-
 		$.ajax({
-			url:        load_users_url,
+			url:        url,
 			success:    function(data, status, request) {
-				on_response.success(
-					'users', 
-					() => {tog.arrays.map_to_object(response.users, 'uid')},
+				server.on_success(
+					vue_data_prop, 
+					(response) => {handler(response)},
 					vue_component,
 					data,
 					status,
@@ -45,19 +47,40 @@ let api = {
 				)
 			},
 			error:      function(request, status, error){
-				on_response.error('users', request, status, error)
+				server.on_error(vue_data_prop, request, status, error)
 			}
 		})
 
 	}
-
+   
 }
 
-// function load() {
-//     alert(3)
-// }
+let api = {
 
-// func
+	get_group_users:
+	function(gid, vue_component) {
+		
+		server.get(
+			'users',
+			'https://filmpicker.philosofiles.com/sync/?action=get_group_users&group='+gid,
+			this,
+			(response) => {return tog.arrays.map_to_object(response.users, 'uid')}
+		);
 
+	},
+
+	get_group_films:
+	function(gid, vue_component) {
+		
+		server.get(
+			'films',
+			'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+gid,
+			this,
+			(response) => {return response.films}
+		);
+	
+	},
+
+}
 
 export default api

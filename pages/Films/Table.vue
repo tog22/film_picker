@@ -49,7 +49,9 @@
 
 <script>
 import Film from '../../pages/Films/Film'
+
 import dummy_server from '../../Dummy_Server/Data'
+import api from '../../Server/Server'
 import getb from '../../Libraries/synchronous_requests'
 import $ from 'jquery'
 import tog from '../../Libraries/tog'
@@ -98,59 +100,8 @@ export default {
 	data() {
 
 		let group = 1
-		let load_users_url = 'https://filmpicker.philosofiles.com/sync/?action=get_group_users&group='+group
-		let load_films_url = 'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+group
-
-		let load = {
-
-			users(data, status, request) {
-				let response = JSON.parse(data)
-				if (response.result === 'success') {
-					this.users = tog.arrays.map_to_object(response.users, 'uid')
-					tog.vue.mark_loaded('users', this)
-				}
-			},
-
-			users_error(request, status, error) {
-				alert('load users error')
-			},
-
-			films(data, status, request) {
-				let response = JSON.parse(data)
-				if (response.result === 'success') {
-				   this.films = response.films
-				   tog.vue.mark_loaded('films', this)
-				}
-			},
-
-			films_error(request, status, error) {
-				alert('load films error')
-			},
-
-		}
-
-		load.users = load.users.bind(this)
-		load.films = load.films.bind(this)
-
-		$.ajax({
-			url:        load_users_url,
-			success:    function(data, status, request) {
-				load.users(data, status, request)
-			},
-			error:      function(request, status, error){
-				load.users_error(request, status, error)
-			}
-		})
-
-		$.ajax({
-			url:        load_films_url,
-			success:    function(data, status, request) {
-				load.films(data, status, request)
-			},
-			error:      function(request, status, error) {
-				load.films_error(request, status, error)
-			}
-		})
+		api.get_group_users(group, this)
+		api.get_group_films(group, this)
 
 		return {
 			films:      {},
