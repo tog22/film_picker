@@ -3,7 +3,7 @@ import $ from 'jquery'
 
 let server = {
 	
-	on_success:
+	on_get_success:
 	function(
 		vue_data_prop,
 		handler,
@@ -19,7 +19,25 @@ let server = {
 		}
 	},
 
-	on_error:
+	on_get_error:
+	function(vue_data_prop, request, status, error) {
+		alert('⚠️ API error for '+vue_data_prop)
+	},
+
+	on_send_success:
+	function(
+		callback,
+		data,
+		status,
+		request
+	) {
+		let response = JSON.parse(data)
+		if (response.result === 'success') {
+			callback(response)
+		}
+	},
+
+	on_send_error:
 	function(vue_data_prop, request, status, error) {
 		alert('⚠️ API error for '+vue_data_prop)
 	},
@@ -37,7 +55,7 @@ let server = {
 		$.ajax({
 			url:        url,
 			success:    function(data, status, request) {
-				server.on_success(
+				server.on_get_success(
 					vue_data_prop, 
 					(response) => {return handler(response)},
 					vue_component,
@@ -47,7 +65,32 @@ let server = {
 				)
 			},
 			error:      function(request, status, error){
-				server.on_error(vue_data_prop, request, status, error)
+				server.on_get_error(vue_data_prop, request, status, error)
+			}
+		})
+
+	},
+
+	send:
+	function(
+		url, 
+		callback
+	) {
+
+		let server = this
+		
+		$.ajax({
+			url:        url,
+			success:    function(data, status, request) {
+				server.on_send_success(
+					callback,
+					data,
+					status,
+					request
+				)
+			},
+			error:      function(request, status, error){
+				server.on_send_error(url, request, status, error)
 			}
 		})
 
@@ -80,6 +123,14 @@ let api = {
 		);
 	
 	},
+
+	signup:
+	function(username, password, on_account_creation) {
+		server.send(
+			'https://filmpicker.philosofiles.com/sync/?action=signup&un='+username+'&pw='+password,
+
+		)
+	}
 
 }
 

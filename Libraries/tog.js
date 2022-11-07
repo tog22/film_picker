@@ -2,7 +2,7 @@
 ******************
 **  			**
 **    tog.js    **
-**    v1.09     **
+**    v1.10     **
 **  			**
 ******************
 *****************/
@@ -393,16 +393,19 @@ var tog = {
   
 	vue:
 	{
-	  mark_loaded:
-	  function(aspect_to_mark, component) {
-		component.loaded[aspect_to_mark] = true
-		component.loaded.overall = true
-		for (var aspect in component.loaded) {
-			if (!component.loaded[aspect]) {
-				component.loaded.overall = false
+	  
+		mark_loaded:
+	  	function(aspect_to_mark, component) {
+			if (loaded in component) {
+				component.loaded[aspect_to_mark] = true
+				component.loaded.overall = true
+				for (var aspect in component.loaded) {
+					if (!component.loaded[aspect]) {
+						component.loaded.overall = false
+					}
+				}
 			}
-		}
-	  }
+		},
 	}
   
   };

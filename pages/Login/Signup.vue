@@ -2,7 +2,7 @@
     <q-page>
 
         <h1>
-            Log in
+            Sign up
         </h1>
       
 		<q-form
@@ -10,7 +10,7 @@
             class="full_width_form q-gutter-y-md"
 		>
 			<q-input
-                label="Username"
+                label="Login"
                 v-model="username"
                 outlined
                 :rules="[val => !!val || 'Enter your login']"
@@ -31,7 +31,7 @@
 			<div className="no_top">
 				<q-btn
                     type="submit"
-                    label="Log in"
+                    label="Sign up"
                     color="primary"
                     size="md"
 				/>
@@ -54,17 +54,25 @@ export default {
 	methods: {
 		on_submit() {
 
-			let query_url = 'http://www.omdbapi.com/?apikey=67a0cf67&s='+this.search_term
+			
 
-			api.signup()
+			api.signup(this.username, this.password, this.on_account_creation)
+
 		},
+
+        on_account_creation(user) {
+            this.store.user = user
+            this.$router.push('/home/welcome)
+        }
 	},
 	data() {
 		const store = inject("store").state
 		// ↓ Reset
 		store.sections.add_film = {}
 		return {
-			login:		        '',
+			username:		    '',
+            first_name:         '',
+            full_name:          '',
             password:           '',
             isPwd:              ref(true),
 			store: 				store
