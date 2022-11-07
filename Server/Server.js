@@ -39,7 +39,7 @@ let server = {
 			success:    function(data, status, request) {
 				server.on_success(
 					vue_data_prop, 
-					(response) => {handler(response)},
+					(response) => {return handler(response)},
 					vue_component,
 					data,
 					status,
