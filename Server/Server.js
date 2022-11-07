@@ -63,7 +63,7 @@ let api = {
 		server.get(
 			'users',
 			'https://filmpicker.philosofiles.com/sync/?action=get_group_users&group='+gid,
-			this,
+			vue_component,
 			(response) => {return tog.arrays.map_to_object(response.users, 'uid')}
 		);
 
@@ -75,7 +75,7 @@ let api = {
 		server.get(
 			'films',
 			'https://filmpicker.philosofiles.com/sync/?action=get_group_films&group='+gid,
-			this,
+			vue_component,
 			(response) => {return response.films}
 		);
 	

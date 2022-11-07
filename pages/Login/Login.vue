@@ -2,7 +2,7 @@
     <q-page>
 
         <h1>
-            Login
+            Log in
         </h1>
       
 		<q-form
@@ -15,17 +15,27 @@
                 outlined
                 :rules="[val => !!val || 'Enter your login']"
 			/>
+            <q-input 
+                label="Password"
+                outlined
+                v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Password"
+            >
+                <template v-slot:append>
+                    <q-icon
+                        :name="isPwd ? 'visibility_off' : 'visibility'"
+                        class="cursor-pointer"
+                        @click="isPwd = !isPwd"
+                    />
+                </template>
+            </q-input>
 			<div className="no_top">
 				<q-btn
                     type="submit"
-                    label="Search"
+                    label="Log in"
                     color="primary"
                     size="md"
 				/>
 			</div>
-			<q-banner id="banner" class="hidden text-white bg-red">
-					Please enter a title or IMDB ID
-			</q-banner>
 		</q-form>
 	</q-page>
 </template>
@@ -89,6 +99,7 @@ export default {
 		return {
 			login:		        '',
             password:           '',
+            isPwd:              ref(true),
 			store: 				store
 		}
 	}
