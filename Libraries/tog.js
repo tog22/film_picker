@@ -396,7 +396,7 @@ var tog = {
 	  
 		mark_loaded:
 	  	function(aspect_to_mark, component) {
-			if (loaded in component) {
+			if ('loaded' in component) {
 				component.loaded[aspect_to_mark] = true
 				component.loaded.overall = true
 				for (var aspect in component.loaded) {

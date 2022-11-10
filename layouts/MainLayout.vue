@@ -11,8 +11,41 @@
 					Film Picker
 				</div>
 			</q-toolbar-title>
-			<q-btn flat round dense icon="menu" class="q-mr-sm" />
+			<q-btn
+				flat
+				dense
+				round
+				icon="menu"
+				aria-label="Menu"
+				@click="toggledrawer"
+			/>
+			<!-- <q-btn flat round dense icon="menu" class="q-mr-sm" /> -->
 		</q-toolbar>
+		 <q-drawer
+			v-model="drawerOpen"
+			side="right"
+			show-if-above
+			bordered
+		>
+			<q-list>
+				<q-item-label
+				header
+				>
+					Menu
+				</q-item-label>
+
+				<div
+				v-for="link in essentialLinks"
+				:key="link.title"
+				v-bind="link"
+				>
+					<a :href="link.url">
+						<span v-html="link.title">
+						</span>
+					</a>
+				</div>
+			</q-list>
+		</q-drawer>
 		<div class="page_margin">
 			<!--
 			<h1 id="site_title">
@@ -40,6 +73,7 @@
 
 <script>
 import { inject, defineComponent, ref } from 'vue'
+import $ from 'jquery'
 
 const linksList = [
 	{
@@ -47,6 +81,7 @@ const linksList = [
 	url: '/'
 	},
 ]
+
 
 export default defineComponent({
 	name: 'MainLayout',
@@ -61,14 +96,14 @@ export default defineComponent({
 	},
 
 	setup () {
-		const leftDrawerOpen = ref(false)
+		const drawerOpen = ref(false)
 		const store_parent = inject("store")
 
 		return {
 			essentialLinks: linksList,
-			leftDrawerOpen,
-			toggleLeftDrawer () {
-				leftDrawerOpen.value = !leftDrawerOpen.value
+			drawerOpen,
+			toggledrawer () {
+				drawerOpen.value = !drawerOpen.value
 			},
 			store: 		store_parent.state
 		}
