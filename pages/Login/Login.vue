@@ -53,10 +53,8 @@ export default {
 	},
 	methods: {
 		on_submit() {
+			api.login(this.username, this.password, this.on_login, () => {})
 
-			let query_url = 'http://www.omdbapi.com/?apikey=67a0cf67&s='+this.search_term
-
-			api.signup()
 		},
 	},
 	data() {

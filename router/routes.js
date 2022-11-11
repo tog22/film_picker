@@ -14,7 +14,7 @@ const routes = [
       { path: '/search_results', component: () => import('pages/Films/Add/Search_Results.vue') },
       { path: '/film/new/:id', component: () => import('pages/Films/After_Adding/After_Adding.vue') },
       { path: '/help/imdb_id', component: () => import('pages/Help/IMDB_ID.vue') },
-      // { path: '/signup', component: () => import('pages/Login/Signup.vue') },
+      { path: '/signup', component: () => import('pages/Login/Signup.vue') },
       { path: '/login', component: () => import('pages/Login/Login.vue') },
     ]
   },

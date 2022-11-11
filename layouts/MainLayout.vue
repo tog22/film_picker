@@ -77,9 +77,18 @@ import $ from 'jquery'
 
 const linksList = [
 	{
-	title: 'Home',
-	url: '/'
+		title: 'Home',
+		url: '/'
 	},
+	{
+		title: 'Signup',
+		url: '/#/signup'
+	},
+	{
+		title: 'Login',
+		url: '/#/login'
+	},
+
 ]
 
 

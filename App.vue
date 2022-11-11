@@ -28,7 +28,7 @@ document.addEventListener('deviceready', async () => {
 export default defineComponent({
   name: 'App',
   setup(){
-    
+
     provide('store',store)
   },
   mounted(){

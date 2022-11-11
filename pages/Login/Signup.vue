@@ -4,36 +4,49 @@
         <h1>
             Sign up
         </h1>
-      
+
 		<q-form
             @submit="on_submit"
             class="full_width_form q-gutter-y-md"
 		>
 			<q-input
-                label="Login"
-                v-model="username"
+                label="Full name"
+                v-model="full_name"
                 outlined
-                :rules="[val => !!val || 'Enter your login']"
+                :rules="[val => !!val || 'Required']"
 			/>
-            <q-input 
-                label="Password"
+			<q-input
+                label="First name"
+                v-model="first_name"
                 outlined
-                v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Password"
-            >
-                <template v-slot:append>
-                    <q-icon
-                        :name="isPwd ? 'visibility_off' : 'visibility'"
-                        class="cursor-pointer"
-                        @click="isPwd = !isPwd"
-                    />
-                </template>
-            </q-input>
-			<div className="no_top">
+                :rules="[val => !!val || 'Required']"
+			/>
+			<!--<q-input
+                label="Email"
+                v-model="email"
+                outlined
+                :rules="[val => !!val || 'Required']"
+	    	/>-->
+			<q-input
+				label="Password"
+				outlined
+				v-model="password"
+				:type="isPwd ? 'password' : 'text'"
+			>
+				<template v-slot:append>
+					<q-icon
+  					:name="isPwd ? 'visibility_off' : 'visibility'"
+  					class="cursor-pointer"
+  					@click="isPwd = !isPwd"
+					/>
+				</template>
+			</q-input>
+			<div style="margin-top: 20px">
 				<q-btn
-                    type="submit"
-                    label="Sign up"
-                    color="primary"
-                    size="md"
+					type="submit"
+					label="Sign up"
+					color="primary"
+					size="md"
 				/>
 			</div>
 		</q-form>
@@ -42,40 +55,50 @@
 
 <script>
 import $ from 'jquery'
-import { inject } from "vue"
+import { inject, ref } from "vue"
 
 import api from '../../Server/Server'
 
 
 export default {
-	name: 			'Login_Page',
+	name: 			'Signup_Page',
 	components: {
 	},
 	methods: {
 		on_submit() {
 
-			
+      		let pms = {
+				full_name:			this.full_name,
+				first_name:			this.first_name,
+				password:			this.password,
+				// email:				this.email,
+			  }
 
-			api.signup(this.username, this.password, this.on_account_creation)
+			api.signup(pms, this.on_account_creation, this.on_error)
 
 		},
 
-        on_account_creation(user) {
-            this.store.user = user
-            this.$router.push('/home/welcome)
-        }
+		on_account_creation(result) {
+			lo(result)
+			this.store.user = result.user
+        	this.$router.push('/home/welcome')
+    	},
+
+    	on_error(error) {
+
+    	}
 	},
 	data() {
 		const store = inject("store").state
 		// ↓ Reset
 		store.sections.add_film = {}
 		return {
-			username:		    '',
-            first_name:         '',
-            full_name:          '',
-            password:           '',
-            isPwd:              ref(true),
-			store: 				store
+      full_name:          '',
+      first_name:         '',
+      email:		          '',
+      password:           '',
+      isPwd:              ref(true),
+			store: 				      store
 		}
 	}
 }
