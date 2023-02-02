@@ -10,15 +10,16 @@
             class="full_width_form q-gutter-y-md"
 		>
 			<q-input
-                label="Username"
-                v-model="username"
+                label="Email"
+                v-model="login"
                 outlined
                 :rules="[val => !!val || 'Enter your login']"
 			/>
             <q-input 
                 label="Password"
                 outlined
-                v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Password"
+                v-model="password" 
+                :type="isPwd ? 'password' : 'text'" 
             >
                 <template v-slot:append>
                     <q-icon
@@ -28,7 +29,7 @@
                     />
                 </template>
             </q-input>
-			<div className="no_top">
+			<div>
 				<q-btn
                     type="submit"
                     label="Log in"
@@ -42,7 +43,7 @@
 
 <script>
 import $ from 'jquery'
-import { inject } from "vue"
+import { inject, ref } from "vue"
 
 import api from '../../Server/Server'
 
@@ -53,7 +54,7 @@ export default {
 	},
 	methods: {
 		on_submit() {
-			api.login(this.username, this.password, this.on_login, () => {})
+			api.login(this.login, this.password, this.on_login, () => {})
 
 		},
 	},

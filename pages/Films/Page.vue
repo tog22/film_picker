@@ -11,7 +11,7 @@
               label="Add Film"
               color="primary"
               size="md"
-              to="/add"
+              @click="add_film()"
           />
         </div>
 
@@ -33,13 +33,20 @@ export default {
     components:     {
         Group_Films_Table
     },
+    methods: {
+      add_film() {
+        this.store.sections.add_film.previous_page = '/group/'+this.group.id
+        this.$router.push('/add')
+      }
+    },
     data() {
       
-			
-      
       let group = groups[this.$route.params.id]
+      let store_parent = inject("store")
+
       return {
-        group: group
+        store: 			store_parent.state,
+        group:      group
       }
     }
 }

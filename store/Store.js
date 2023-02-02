@@ -23,7 +23,8 @@ const default_state = {
 		},
 		sections: {
 			add_film:   {
-				search_results: {}
+				search_results: {},
+				previous_page:	'/user/films'
 			},
 			group: 	{
 				displayed: 		{

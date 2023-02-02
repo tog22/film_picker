@@ -8,6 +8,7 @@
 @import 'Chrome/chrome.scss';
 @import 'Films.scss';
 @import 'Friends.scss';
+@import 'To_Sort.scss';
 
 
 
@@ -272,7 +273,7 @@ a.button:hover {
 /***********************************/
 
 td.rcell {
-	
+
 
 
 	.ranking_container {
@@ -298,7 +299,7 @@ td.rcell {
 	}
 
 	.c_symbol {
-		
+
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
@@ -349,7 +350,7 @@ td.rcell {
 /***********************************/
 
 #response_list_with_keys {
-	
+
 	display: flex;
 	flex-wrap: wrap;
 	margin-left: 1px;

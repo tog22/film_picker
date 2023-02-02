@@ -17,11 +17,12 @@
 				round
 				icon="menu"
 				aria-label="Menu"
-				@click="toggledrawer"
+				@click="menu_click"
 			/>
 			<!-- <q-btn flat round dense icon="menu" class="q-mr-sm" /> -->
 		</q-toolbar>
-		 <q-drawer
+		<!-- 		
+		<q-drawer
 			v-model="drawerOpen"
 			side="right"
 			show-if-above
@@ -46,6 +47,19 @@
 				</div>
 			</q-list>
 		</q-drawer>
+    	-->
+    	<div id="basic_menu">
+			<p
+				v-for="link in essentialLinks"
+				:key="link.title"
+				v-bind="link"
+			>
+				<a :href="link.url">
+					<span v-html="link.title">
+					</span>
+				</a>
+			</p>
+		</div>
 		<div class="page_margin">
 			<!--
 			<h1 id="site_title">
@@ -99,23 +113,52 @@ export default defineComponent({
 	},
 
 	methods: {
-		go_to_home() {
-			this.$router.push('/')
-		}
-	},
 
+    	go_to_home() {
+			this.$router.push('/')
+		},
+
+		menu_click() {
+
+			if ($('#basic_menu').css('display') === 'none') {
+				$('#basic_menu').css('display', 'block')
+			} else {
+				$('#basic_menu').css('display', 'none')
+			}
+
+			// alt method:
+			// this.toggledrawer()
+
+		}
+
+	},
 	setup () {
 		const drawerOpen = ref(false)
 		const store_parent = inject("store")
 
 		return {
-			essentialLinks: linksList,
+			essentialLinks: 		linksList,
+			isbmshown:				'bm_hidden',
 			drawerOpen,
 			toggledrawer () {
 				drawerOpen.value = !drawerOpen.value
 			},
-			store: 		store_parent.state
+			store: 					store_parent.state
 		}
 	},
 })
 </script>
+
+<style>
+
+#basic_menu {
+	position: absolute;
+	right: 0px;
+	top: 60px;
+	z-index: 2;
+	padding: 1em;
+	border: 1px solid #ddd;
+	background: white;
+}
+
+</style>
