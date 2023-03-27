@@ -16,6 +16,7 @@ const routes = [
       { path: '/help/imdb_id', component: () => import('pages/Help/IMDB_ID.vue') },
       { path: '/signup', component: () => import('pages/Login/Signup.vue') },
       { path: '/login', component: () => import('pages/Login/Login.vue') },
+      { path: '/user/films', component: () => import('pages/User/Films.vue') },
     ]
   },
 

@@ -10,7 +10,7 @@
             class="full_width_form q-gutter-y-md"
 		>
 			<q-input
-                label="Email"
+                label="Username"
                 v-model="login"
                 outlined
                 :rules="[val => !!val || 'Enter your login']"
@@ -18,8 +18,7 @@
             <q-input 
                 label="Password"
                 outlined
-                v-model="password" 
-                :type="isPwd ? 'password' : 'text'" 
+                v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Password"
             >
                 <template v-slot:append>
                     <q-icon
@@ -29,7 +28,7 @@
                     />
                 </template>
             </q-input>
-			<div>
+			<div className="no_top">
 				<q-btn
                     type="submit"
                     label="Log in"
@@ -38,7 +37,6 @@
 				/>
 			</div>
 		</q-form>
-        <p>Option:<br/>tomashcanada@gmail.com<br/>123</p>
 	</q-page>
 </template>
 
@@ -55,17 +53,21 @@ export default {
 	},
 	methods: {
 		on_submit() {
-			api.login(this.login, this.password, this.on_login, () => {})
+			api.login(this.username, this.password, this.on_login, () => {})
 
 		},
+
+        on_login(response) {
+            alert(1)
+        }
 	},
 	data() {
 		const store = inject("store").state
 		// ↓ Reset
 		store.sections.add_film = {}
 		return {
-			login:		        '',
-            password:           '',
+			login:		        'tomashcanada@gmail.com',
+            password:           '123',
             isPwd:              ref(true),
 			store: 				store
 		}

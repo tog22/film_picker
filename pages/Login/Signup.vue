@@ -21,12 +21,12 @@
                 outlined
                 :rules="[val => !!val || 'Required']"
 			/>
-			<!--<q-input
+			<q-input
                 label="Email"
                 v-model="email"
                 outlined
                 :rules="[val => !!val || 'Required']"
-	    	/>-->
+	    	/>
 			<q-input
 				label="Password"
 				outlined
