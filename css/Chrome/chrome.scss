@@ -12,3 +12,13 @@
 #app_title {
 	font-size: 1.45em;
 }
+
+#basic_menu {
+	z-index: 2;
+	background-color: white;
+	position: absolute;
+	right: 0px;
+	top: 80px;
+	padding: 1em;
+	border: 1px solid #ddd;
+}

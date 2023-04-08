@@ -21,7 +21,7 @@
 			/>
 			<!-- <q-btn flat round dense icon="menu" class="q-mr-sm" /> -->
 		</q-toolbar>
-		<!-- 		
+		<!--
 		<q-drawer
 			v-model="drawerOpen"
 			side="right"
@@ -127,7 +127,7 @@ export default defineComponent({
 			}
 
 			// alt method:
-			// this.toggledrawer()
+			// thistoggledrawer()
 
 		}
 
@@ -148,17 +148,3 @@ export default defineComponent({
 	},
 })
 </script>
-
-<style>
-
-#basic_menu {
-	position: absolute;
-	right: 0px;
-	top: 60px;
-	z-index: 2;
-	padding: 1em;
-	border: 1px solid #ddd;
-	background: white;
-}
-
-</style>

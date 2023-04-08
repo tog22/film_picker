@@ -97,6 +97,7 @@ export default {
 					let response = JSON.parse(data)
 					if (response.result !== 'success') {
 						alert('err 4543')
+						this.$router.push(this.store.sections.add_film.previous_page)
 					}
 					
 				},
