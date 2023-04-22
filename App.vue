@@ -3,7 +3,7 @@
 </template>
 <script>
 import { defineComponent, provide } from 'vue';
-import store from './store/Store'
+import store from './store/index'
 
 document.addEventListener('deviceready', async () => {
   // Obtain user consent first

@@ -159,6 +159,9 @@ export default defineComponent({
 	padding: 1em;
 	border: 1px solid #ddd;
 	background: white;
+
+	display: none;
+	
 }
 
 </style>
