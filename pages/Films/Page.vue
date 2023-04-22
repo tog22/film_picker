@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {inject} from 'vue'
 import Group_Films_Table from '../../pages/Films/Table'
 /*
 */
